@@ -2,12 +2,12 @@ import React from 'react';
 
 import { Container } from './styles';
 
-const Login = () => {
+const Cadastro = () => {
   return (
     <Container>
-      <h1>Login</h1>
+      <h1>Cadastre-se</h1>
     </Container>
   );
 }
 
-export default Login;
+export default Cadastro;
