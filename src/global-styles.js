@@ -17,7 +17,6 @@ const GlobalStyle = createGlobalStyle`
    --color-login-box: #b6c8d83b; 
    --color-login-box-hover: #ffd48588; 
    --color-login-link: #19068B;
-   --color-border: #758A94;
    --color-nav-estagio: #C4C4C4;
    --color-font-nav-estagio: #414A50;
    --color-nav-estagio-selected: #0C90C8;

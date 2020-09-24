@@ -28,9 +28,10 @@ export const Container = styled.header`
             *{
                 margin-right: 5px;
             }
-        }
-        .nav-item:last-child{
-            margin: 0 30px 0 auto;
+            
+            :last-child{
+                margin: 0 30px 0 auto;
+            }
         }
     }
 `;

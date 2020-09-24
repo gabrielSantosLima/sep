@@ -13,29 +13,28 @@ export const Main = styled.main`
   width: 100%;
   height: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
   background-color: var(--color-container);
+
+  :first-child{
+    margin-top: 10px;
+  }
 `
 
 export const Box = styled.div`
   width: 80%;
-  height: 80%;
   display: flex;
+  justify-content: center;
   flex-direction: column;
+  padding: 10px;
 
   nav{
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    min-height: 30px;
     flex: 1;
   }
 
   nav ul{
-    height: 100%;
+    height: 30px;
     display: flex;
-    flex: 1;
     flex-direction: row;
     list-style: none;
     
@@ -55,6 +54,7 @@ export const Box = styled.div`
     background-color: var(--color-nav-estagio);
     color: var(--color-font-nav-estagio);
     font-size: 1.4rem;
+    transition: .4s;
 
     :first-child{
       border-radius: 8px 0 0;
@@ -63,12 +63,13 @@ export const Box = styled.div`
     :last-child{
       border-radius: 0 8px 0 0;
     }
+
+    :hover{
+      filter: brightness(90%);
+    }
   }
 
   form{
-    flex: 10;
-    border: 0.5px solid;
-    border-color: var(--color-border);
     display: flex;
     flex-wrap: wrap;
 
@@ -125,4 +126,67 @@ export const Box = styled.div`
     }
     
   }
+  .documento{
+    width: 60%;
+    height: 40px;
+    background: var(--color-treebar-background);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    margin: 8px;
+    padding: 8px;
+
+    span{
+      margin-left: 8px;
+      margin-right: auto;
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+
+    .download{
+      transition: .2s;
+      cursor: pointer;
+    
+      :hover{
+        filter: brightness(90%);
+      }
+    }
+
+  }
+
+  .participantes, .bancas{
+    flex: 1;
+    width: 100%;
+    display: flex;
+
+    table{
+      flex: 1;
+      padding: 30px;
+      
+      tr{
+        th{
+          font-size: 1.4rem;
+          height: 30px;
+        }
+        td{
+          height: 60px;
+          text-align: center;
+          font-size: 1.4rem;
+
+          ul{
+            list-style: none;
+          }
+        }
+      }
+    }
+  }
+`
+
+export const ContentBox = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0.2px 0.2px 2px 0px rgba(0,0,0,0.4);
 `

@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
+
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import TreeBar from '../../components/TreeBar';
@@ -10,7 +12,7 @@ const Homepage = () => {
     <Container>
       <Header isLogin={true} />
       <TreeBar>
-        <li>Tela Inicial</li>
+        <li><Link to="/home">Tela Inicial</Link></li>
       </TreeBar>
       
       <Footer />

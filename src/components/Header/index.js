@@ -1,5 +1,5 @@
 import React from 'react';
-import { FiUser, FiFileText, FiGitBranch, FiLogOut } from 'react-icons/fi'
+import { FiUser, FiFileText, FiGitBranch, FiLogOut, FiHome } from 'react-icons/fi'
 import { GoBookmark } from 'react-icons/go'
 
 import { Container } from './styles';
@@ -16,10 +16,13 @@ const Header = ( props ) => {
         props.isLogin &&
         <ul className="nav">
           <li className="nav-item">
+            <FiHome />
+          </li>
+          <li className="nav-item">
             <FiUser />
             Perfil    
           </li>
-          <li className="nav-item">
+          {/* <li className="nav-item">
           <FiFileText />
             Documentos
           </li>
@@ -30,7 +33,7 @@ const Header = ( props ) => {
           <li className="nav-item">
             <GoBookmark />
             Certificados
-          </li>
+          </li> */}
           <li className="nav-item">
             <FiLogOut />
             Sair
