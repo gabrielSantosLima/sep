@@ -1,22 +1,20 @@
 import React from 'react';
 
 import { Container } from './styles';
-import Button from './../../components/Button/styles';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+import TreeBar from '../../components/TreeBar';
 
 const ProjetoDescricao = () => {
   return (
     <Container>
-      
-      <Button 
-        width={10} 
-        bkColor="transparent" 
-        height={5} 
-        color="white"
-      >
-        Home
-      </Button>
+      <Header isLogin/>
+      <TreeBar>
+        <li>Tela Inicial</li>
+        <li>Projetos</li>
+      </TreeBar>
 
-      <h1>Descrição de um projeto</h1>
+      <Footer />
     </Container>
   );
 }
