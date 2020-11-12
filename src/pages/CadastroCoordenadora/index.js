@@ -2,12 +2,12 @@ import React from 'react';
 
 import { Container } from './styles';
 
-const Cadastro = () => {
+const CadastroCoordenadora = () => {
   return (
     <Container>
-      <h1>Cadastre-se</h1>
+      <h1>Cadastro de coordenadora</h1>
     </Container>
   );
 }
 
-export default Cadastro;
+export default CadastroCoordenadora;
