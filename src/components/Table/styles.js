@@ -32,11 +32,11 @@ export const Container = styled.div`
         transition: .4s;
         
         :first-child{
-            border-radius: 8px 0 0;
+            border-top-left-radius: 8px;
         }
         
         :last-child{
-            border-radius: 0 8px 0 0;
+            border-top-right-radius: 8px;
         }
         
         :hover{
