@@ -5,13 +5,16 @@ import { FiTrash2 } from 'react-icons/fi'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import TreeBar from '../../components/TreeBar'
+import ContainerMain from '../../components/ContainerMain'
+import Main from '../../components/Main'
 
-import { Container, Main, TableBancas } from './styles'
+import { Container, TableBancas } from './styles'
 
 
 const Bancas = ()=> {
     return (
   <Container>
+  <ContainerMain>
       <Header isLogin={true}/>
       <TreeBar>
         <li><Link to="/home">Tela Inicial</Link></li>
@@ -58,7 +61,9 @@ const Bancas = ()=> {
             </TableBancas>
       </Main>
 
+
       <Footer />
+      </ContainerMain>
     </Container>
 
     )

@@ -1,11 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  margin: auto;
-  margin-top: 0;
-  width: 75%;
-  display: flex;
-  flex-direction: column;
 
   h1{
     background: var(--color-background-title);
@@ -17,17 +12,6 @@ export const Container = styled.div`
   }
 `
 
-export const Main = styled.main`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  background-color: var(--color-container);
-
-  :first-child{
-    margin-top: 10px;
-  }
-`
 export const TableDocuments = styled.div`
 
     align-self: center;

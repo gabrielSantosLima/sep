@@ -7,13 +7,16 @@ import { FaRegEdit } from 'react-icons/fa'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import TreeBar from '../../components/TreeBar'
+import ContainerMain from '../../components/ContainerMain'
+import Main from '../../components/Main'
 
-import { Container, Main, TableDocuments } from './styles'
+import { Container, TableDocuments } from './styles'
 
 
 const Certificados = ()=> {
     return(
         <Container>
+        <ContainerMain>
           <Header isLogin={true}/>
       <TreeBar>
         <li><Link to="/home">Tela Inicial</Link></li>
@@ -32,6 +35,7 @@ const Certificados = ()=> {
     </TableDocuments>
       </Main>
       <Footer/>
+      </ContainerMain>
         </Container>
     )
 }
