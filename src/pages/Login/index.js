@@ -67,14 +67,14 @@ const Login = () => {
               type="email" 
               className="form-control" 
               id="login" 
-              placeholder="E-mail ou Matrícula" 
+              placeholder="E-mail" 
             />
             
             <input 
               type="password" 
               className="form-control" 
               id="senha" 
-              placeholder="Senha" 
+              placeholder="Matrícula" 
             />
             <button type="submit" className="btn">Entrar</button>
         </div> 
