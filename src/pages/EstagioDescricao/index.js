@@ -6,16 +6,12 @@ import { MdAccessTime } from 'react-icons/md'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import TreeBar from '../../components/TreeBar'
+import Table from '../../components/Table'
+import TableContent from '../../components/TableContent'
 
-import { Container, Box, Main, ContentBox } from './styles';
+import { Container, Main } from './styles';
 
 const EstagioDescricao = () => {
-  const [indexFrame, setIndexFrame] = useState(0)
-  
-  function handleFrame(index){
-    setIndexFrame(index)
-  }
-
   return (
     <Container>
       <Header isLogin={true}/>
@@ -25,34 +21,8 @@ const EstagioDescricao = () => {
       </TreeBar>
 
       <Main>
-        <Box> 
-          <nav>
-            <ul>
-              <li 
-                className={indexFrame === 0 ? "selected": ""} 
-                onClick={() => handleFrame(0)}>
-                  Descrição
-                </li>
-              <li 
-                className={indexFrame === 1 ? "selected": ""} 
-                onClick={() => handleFrame(1)}>
-                  Bancas
-                </li>
-              <li 
-                className={indexFrame === 2 ? "selected": ""} 
-                onClick={() => handleFrame(2)}>
-                  Participantes
-                </li>
-              <li 
-                className={indexFrame === 3 ? "selected": ""} 
-                onClick={() => handleFrame(3)}>
-                  Documentos
-                </li>
-            </ul>
-          </nav>
-          
-        {indexFrame === 0 && 
-          <ContentBox>
+        <Table>
+          <TableContent title="Descrição">
             <form>
               <div className="form-group">
                 <label htmlFor="titulo">
@@ -122,10 +92,8 @@ const EstagioDescricao = () => {
                 </button>
               </div>
             </form>
-          </ContentBox>
-        }
-        {indexFrame === 1 && 
-          <ContentBox>
+          </TableContent>
+          <TableContent title="Bancas">
             <div className="bancas">
               <table>
                 <thead>
@@ -172,10 +140,8 @@ const EstagioDescricao = () => {
                 </tbody>
               </table>
             </div>
-          </ContentBox>
-        }
-        {indexFrame === 2 && 
-          <ContentBox>
+          </TableContent>
+          <TableContent title="Participantes">
             <div className="participantes">
               <table>
                 <thead>  
@@ -207,18 +173,15 @@ const EstagioDescricao = () => {
                 </tbody>
               </table>
             </div>
-          </ContentBox>
-        }
-        {indexFrame === 3 && 
-          <ContentBox>
+          </TableContent>
+          <TableContent title="Documentos">
             <div className="documento">
               <FiPaperclip size={20}/>
               <span>Ata de relatório</span>
               <FiDownload className="download" size={20}/>
             </div>  
-          </ContentBox>
-        }
-        </Box>
+          </TableContent>
+        </Table>
       </Main>
       
       <Footer />
