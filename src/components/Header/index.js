@@ -29,11 +29,11 @@ const Header = ( props ) => {
           <li className="nav-item">
             <FiGitBranch />
             Bancas
-          </li>
+          </li> */}
           <li className="nav-item">
             <GoBookmark />
             Certificados
-          </li> */}
+          </li>
           <li className="nav-item">
             <FiLogOut />
             Sair

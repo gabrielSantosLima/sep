@@ -3,28 +3,30 @@ import { Link } from 'react-router-dom'
 
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
+import Main from '../../components/Main'
 import TreeBar from '../../components/TreeBar';
 import Table from '../../components/Table'
-import TableContent from '../../components/TableContent'
+import ContainerMain from '../../components/ContainerMain'
 
-import { Container, Main } from './styles';
+import { Container } from './styles';
 
 const Homepage = () => {
 
   return (
     <Container>
-      <Header isLogin={true} />
-      <TreeBar>
-        <li><Link to="/home">Tela Inicial</Link></li>
-      </TreeBar>
-        
-      <Main>  
-        <Table>
-          <TableContent title="Descrição">Descrição</TableContent>
-        </Table>
-      </Main>
+      <ContainerMain>
+        <Header isLogin={true} />
+        <TreeBar>
+          <li><Link to="/home">Tela Inicial</Link></li>
+        </TreeBar>
+          
+        <Main>  
+          <Table>
+          </Table>
+        </Main>
 
-      <Footer />
+        <Footer />
+      </ContainerMain>
     </Container>
   );
 }
