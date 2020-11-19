@@ -20,7 +20,9 @@ const Homepage = () => {
         
       <Main>  
         <Table>
-          <TableContent title="Descrição">Descrição</TableContent>
+          <TableContent title="Descrição">
+          Alguma coisa 
+          </TableContent>
         </Table>
       </Main>
 
