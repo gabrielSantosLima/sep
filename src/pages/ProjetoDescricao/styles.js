@@ -1,74 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  margin: auto;
-  margin-top: 0;
-  width: 75%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-`;
-
-export const Main = styled.main`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  background-color: var(--color-container);
-
-  :first-child{
-    margin-top: 10px;
-  }
-`
-
-export const Box = styled.div`
-  width: 80%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  padding: 10px;
-
-  nav{
-    flex: 1;
-  }
-
-  nav ul{
-    height: 30px;
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    
-    .selected{
-      background-color: var(--color-nav-estagio-selected);
-      color: var(--color-font-nav-estagio-selected);
-    }
-  }
-  
-  nav ul li{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 100%;
-    cursor: pointer;
-    background-color: var(--color-nav-estagio);
-    color: var(--color-font-nav-estagio);
-    font-size: 1.4rem;
-    transition: .4s;
-
-    :first-child{
-      border-radius: 8px 0 0;
-    }
-    
-    :last-child{
-      border-radius: 0 8px 0 0;
-    }
-
-    :hover{
-      filter: brightness(90%);
-    }
-  }
-
   form{
     display: flex;
     flex-wrap: wrap;
@@ -180,13 +112,4 @@ export const Box = styled.div`
       }
     }
   }
-`
-
-export const ContentBox = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  box-shadow: 0.2px 0.2px 2px 0px rgba(0,0,0,0.4);
-`
+`;

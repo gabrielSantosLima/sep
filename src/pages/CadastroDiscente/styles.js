@@ -1,11 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  margin: auto;
-  margin-top: 0;
-  width: 75%;
-  background-color: var(--color-container);
-  
   h5{
     margin: 10px 0;
     text-align: center;

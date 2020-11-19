@@ -1,14 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  margin: auto;
-  margin-top: 0;
-  width: 75%;
-  background-color: var(--color-container);
-  
-  display: flex;
-  flex-direction: column;
-
   label{
     margin-top:40px;
     margin-bottom: 30px;

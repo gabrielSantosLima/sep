@@ -3,14 +3,15 @@ import React, { useState } from 'react';
 import { Container } from './styles';
 
 const Table = ({ children }) => {
-    const isNotArray = !children.length
+    const isChildrenEmpty = !children
+    const isNotArray = !children?.length
     const [indexFrame, setIndexFrame] = useState(0)
     
     function handleFrame(index){
         setIndexFrame(index)
     }
     function renderNavItems(child){
-        const indexOf = children.indexOf(child)
+        const indexOf = children?.indexOf(child)
         const { title } = child.props
         return (
             <li key={indexOf} 
@@ -21,7 +22,7 @@ const Table = ({ children }) => {
         )
     }
     function renderTableContentsItems(child){
-        const indexOf = children.indexOf(child)
+        const indexOf = children?.indexOf(child)
         if(indexFrame === indexOf){
             return (
                 <div key={indexOf}>
@@ -31,13 +32,15 @@ const Table = ({ children }) => {
         }
     }
     
+    if(isChildrenEmpty) return <Container className="table" />
+    
     if(isNotArray){
         return (
             <Container className="table">
           <nav>
             <ul>
                 <li className="selected">
-                    {children.props.title}
+                    {children?.props?.title}
                 </li>
             </ul>
           </nav>
