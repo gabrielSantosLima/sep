@@ -4,13 +4,14 @@ import { Link } from 'react-router-dom';
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import ContainerMain from '../../components/ContainerMain'
-import ParticipantsContainer from '../../components/ParticipantsContainer'
+import DataTable, { DataRow, DataItem } from '../../components/DataTable'
 import Main from '../../components/Main'
 import TreeBar from '../../components/TreeBar'
 import Table from '../../components/Table'
 import TableContent from '../../components/TableContent'
 
 import { Container } from './styles';
+import { FiTrash2 } from 'react-icons/fi'; // ícone da lixeira
 
 const CadastroProjeto = () => {
   return(
@@ -29,13 +30,31 @@ const CadastroProjeto = () => {
             <TableContent title="Docente">Docente</TableContent>
             <TableContent title="Externo">Externo </TableContent>
           </Table>
-          <ParticipantsContainer>
-
-          </ParticipantsContainer>
-        </Main>
-        <Footer />
-    </ContainerMain>
-</Container>
+              
+            <DataTable 
+              fields={["Nome","Matrícula","CPF","Grau Acadêmico","Função"]}
+            >
+              <DataRow>
+                <DataItem>Gabriel Lima</DataItem>
+                <DataItem>2018324100</DataItem>
+                <DataItem>XXX.XXX.XXX-XX</DataItem>
+                <DataItem>Ensino Médio</DataItem>
+                <DataItem>Discente</DataItem>
+                <DataItem><FiTrash2 /></DataItem>
+              </DataRow>
+              <DataRow>
+                <DataItem>Melinne Diniz</DataItem>
+                <DataItem>2018314100</DataItem>
+                <DataItem>XXX.XXX.XXX-XX</DataItem>
+                <DataItem>Mestre</DataItem>
+                <DataItem>Doscente</DataItem>
+                <DataItem><FiTrash2 /></DataItem>
+              </DataRow>
+            </DataTable>
+          </Main>
+          <Footer />
+      </ContainerMain>
+  </Container>
   );
 }
 

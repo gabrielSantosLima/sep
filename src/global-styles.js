@@ -25,6 +25,9 @@ const GlobalStyle = createGlobalStyle`
    --color-confirm: #28B850; 
    --color-treebar-background: #D8E0E4;
    --color-treebar-font: #2267B8;
+   --color-background-title:  #62A6CD;
+   --color-border-table: #676363;
+   --color-title-table: #FFFFFF;
   }
 
   html,body, #root{
