@@ -4,7 +4,7 @@ import { Container } from './styles';
 
 const TreeBar = ( { children }) => {
   return (
-    <Container>
+    <Container className="tree-bar">
       {children}
     </Container>
   );

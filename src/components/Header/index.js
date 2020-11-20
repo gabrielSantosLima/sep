@@ -6,37 +6,41 @@ import { Container } from './styles';
 
 const Header = ( props ) => {
   return (
-    <Container>
-
+    <Container className="header">
       <div className="main">
         SEP - SISTEMA DE ESTÁGIO E PROJETO
       </div>
-
       {
         props.isLogin &&
         <ul className="nav">
-          <li className="nav-item">
-            <FiHome />
+          <li className="left">
+            <li className="nav-item">
+              <FiHome />
+            </li>
+            <li className="nav-item">
+              <FiUser />
+              Perfil    
+            </li>
+            <li className="nav-item">
+              <FiGitBranch />
+              Bancas
+            </li>
+            <li className="nav-item">
+              <GoBookmark />
+              Certificados
+            </li>
           </li>
-          <li className="nav-item">
-            <FiUser />
-            Perfil    
-          </li>
-          {/* <li className="nav-item">
-          <FiFileText />
-            Documentos
-          </li>
-          <li className="nav-item">
-            <FiGitBranch />
-            Bancas
-          </li> */}
-          <li className="nav-item">
-            <GoBookmark />
-            Certificados
-          </li>
-          <li className="nav-item">
-            <FiLogOut />
-            Sair
+          <li className="right">
+            <li className="nav-item change-font">
+              A+
+            </li>
+            <li className="nav-item change-font">
+              A-
+            </li>
+            <li className="nav-item">
+              <FiLogOut />
+              Sair
+            </li>
           </li>
         </ul>
       }

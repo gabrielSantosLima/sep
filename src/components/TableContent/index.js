@@ -4,7 +4,7 @@ import { Container } from './styles';
 
 function TableContent({ children }) {
   return (
-      <Container>
+      <Container className="table-content">
           {children}
       </Container>
   );
