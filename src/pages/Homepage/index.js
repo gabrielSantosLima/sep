@@ -6,6 +6,7 @@ import Header from '../../components/Header';
 import Main from '../../components/Main'
 import TreeBar from '../../components/TreeBar';
 import Table from '../../components/Table'
+import TableContent from '../../components/TableContent'
 import ContainerMain from '../../components/ContainerMain'
 
 import { Container } from './styles';
@@ -14,6 +15,7 @@ const Homepage = () => {
 
   return (
     <Container>
+
       <ContainerMain>
         <Header isLogin={true} />
         <TreeBar>
@@ -21,7 +23,7 @@ const Homepage = () => {
         </TreeBar>
           
         <Main>  
-          <Table>
+          <Table>ntent title="">
           </Table>
         </Main>
 

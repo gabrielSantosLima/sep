@@ -8,6 +8,8 @@ import CadastroCoordenadora from './pages/CadastroCoordenadora';
 import Homepage from './pages/Homepage';
 import EstagioDescricao from './pages/EstagioDescricao';
 import ProjetoDescricao from './pages/ProjetoDescricao';
+import Bancas from './pages/Bancas'
+import Certificados from './pages/Certificados'
 import CadastroProjeto from './pages/CadastroProjeto';
 import CadastroEstagio from './pages/CadastroEstagio';
 
@@ -21,6 +23,8 @@ const Routes = () => {
       <Route component={ Homepage } path="/home" exact/>
       <Route component={ EstagioDescricao } path="/estagios"/>
       <Route component={ ProjetoDescricao } path="/projetos"/>
+      <Route component={ Bancas } path="/bancas"/>
+      <Route component={ Certificados } path="/certificados"/>
       <Route component={ CadastroProjeto } path="/cadastro-projeto"/>
       <Route component={ CadastroEstagio } path="/cadastro-estagio"/>
     </BrowserRouter>
