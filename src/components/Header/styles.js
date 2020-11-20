@@ -13,11 +13,28 @@ export const Container = styled.header`
         font-size: 1.4rem;
         list-style: none;
         display: flex;
-        flex-direction: row;
-        align-items: center;
         width: 100%;
         height: 40px;
         background-color: var(--color-header-nav);
+
+        .left{
+            flex: 3;
+        }
+        .right{
+            flex: 1;
+
+            .change-font{
+                font-weight: bold;
+                font-size: 1.6rem;
+            }
+        }
+        
+        .sub-nav{
+            width: 100%;
+            height: 100%;
+            align-items: center;
+            display: flex;
+        }
 
         .nav-item{
             align-items: center;
@@ -28,10 +45,7 @@ export const Container = styled.header`
             *{
                 margin-right: 5px;
             }
-            
-            :last-child{
-                margin: 0 30px 0 auto;
-            }
         }
+
     }
 `;
