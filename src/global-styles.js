@@ -35,13 +35,17 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
   }
 
-  *, button, input{
+  *, button, input, textarea{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     outline: none;
     border: 0;
     font-family: 'Roboto', sans-serif;
+  }
+
+  ul{
+    list-style: none;
   }
 
   body{
@@ -62,11 +66,5 @@ const GlobalStyle = createGlobalStyle`
     filter: brightness(80%);
   }
 `
-
-export const Container = styled.div`
-  margin: auto;
-  margin-top: 0;
-  width: 75%;
-`;
 
 export default GlobalStyle;

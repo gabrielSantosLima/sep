@@ -4,7 +4,7 @@ import { Container } from './styles';
 
 const Main = ({ children }) => {
   return (
-    <Container>
+    <Container className="main">
         {children}
     </Container>
   );

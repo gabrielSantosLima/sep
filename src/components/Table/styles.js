@@ -11,7 +11,6 @@ export const Container = styled.div`
         height: 30px;
         display: flex;
         flex-direction: row;
-        list-style: none;
         
         .selected{
             background-color: var(--color-nav-estagio-selected);
@@ -25,6 +24,7 @@ export const Container = styled.div`
         align-items: center;
         width: 100px;
         height: 100%;
+        user-select: none;
         cursor: pointer;
         background-color: var(--color-nav-estagio);
         color: var(--color-font-nav-estagio);
