@@ -4,9 +4,9 @@ export const Container = styled.header`
     
     .main{
         background-color: #027DC5;
-        padding:10px;
+        padding: 10px;
         color: white;
-        font-size: 11pt;
+        font-size: 1.2rem;
     }
 
     .nav{
@@ -49,3 +49,9 @@ export const Container = styled.header`
 
     }
 `;
+
+export const Right = styled.li`
+`
+
+export const Left = styled.li`
+`
