@@ -26,7 +26,7 @@ export const Container = styled.form`
             }
         }
         
-        input{
+        input, select{
             background: var(--color-textfield);
             width: 60%;
             height: 34px;
