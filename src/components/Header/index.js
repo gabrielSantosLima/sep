@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import { FiUser, FiFileText, FiGitBranch, FiLogOut, FiHome } from 'react-icons/fi'
+import { FiUser, FiGitBranch, FiLogOut, FiHome } from 'react-icons/fi'
 import { GoBookmark } from 'react-icons/go'
 
-import { Container, Left, Right } from './styles';
+import { Container } from './styles';
 
 const Header = ( {isLogin} ) => {
   return (

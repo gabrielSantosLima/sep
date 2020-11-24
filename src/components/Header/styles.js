@@ -49,9 +49,3 @@ export const Container = styled.header`
 
     }
 `;
-
-export const Right = styled.li`
-`
-
-export const Left = styled.li`
-`
