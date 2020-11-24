@@ -6,10 +6,13 @@ import { MdAccessTime } from 'react-icons/md'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import ContainerMain from '../../components/ContainerMain'
+import DataTable, { DataRow, DataItem } from '../../components/DataTable'
 import Main from '../../components/Main'
 import TreeBar from '../../components/TreeBar'
 import Table from '../../components/Table'
 import TableContent from '../../components/TableContent'
+import Form, { FormGroup } from '../../components/Form'
+import DownloadTable, { DownloadItem } from '../../components/DownloadTable';
 
 import { Container } from './styles';
 
@@ -22,12 +25,11 @@ const EstagioDescricao = () => {
           <li><Link to="/home">Tela Inicial</Link></li>
           <li><Link to="/estagios">Estágios</Link></li>
         </TreeBar>
-
         <Main>
           <Table>
             <TableContent title="Descrição">
-              <form>
-                <div className="form-group">
+              <Form>
+                <FormGroup>
                   <label htmlFor="titulo">
                     <FiBold />
                     Título
@@ -37,9 +39,8 @@ const EstagioDescricao = () => {
                     placeholder="Digite o título do estágio..." 
                     type="text"
                   />
-                </div>
-                
-                <div className="form-group">
+                </FormGroup>
+                <FormGroup>
                   <label htmlFor="local">
                     <FiMapPin />
                     Local
@@ -49,9 +50,8 @@ const EstagioDescricao = () => {
                     placeholder="Digite o local do estágio..." 
                     type="text"
                   />
-                </div>
-                
-                <div className="form-group">
+                </FormGroup>
+                <FormGroup>
                   <label htmlFor="curso">
                     <FiMap />
                     Curso
@@ -61,9 +61,8 @@ const EstagioDescricao = () => {
                     placeholder="Digite o curso..." 
                     type="text"
                   />
-                </div>
-                
-                <div className="form-group">
+                </FormGroup>
+                <FormGroup>
                   <label htmlFor="ch">
                     <MdAccessTime />
                     Carga horária
@@ -73,9 +72,8 @@ const EstagioDescricao = () => {
                     placeholder="Digite a carga horária..." 
                     type="text"
                   />
-                </div>
-                
-                <div className="form-group">
+                </FormGroup>
+                <FormGroup>
                   <label htmlFor="anexo">
                     <FiPaperclip />
                     Anexo
@@ -84,105 +82,71 @@ const EstagioDescricao = () => {
                     name="anexo" 
                     type="file"
                   />
-                </div>
-
-                <div className="form-group">
-                  <button id="cancelar">
-                    Cancelar
-                  </button>
-                  <button id="salvar">
-                    Salvar
-                  </button>
-                </div>
-              </form>
+                </FormGroup>
+              </Form>
             </TableContent>
             <TableContent title="Bancas">
-              <div className="bancas">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Data</th>
-                      <th>Horário</th>
-                      <th>Local</th>
-                      <th>Data de Finalização</th>
-                      <th>Horário de Finalização</th>
-                      <th>Participantes</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>12/01/2020</td>
-                      <td>15:00h</td>
-                      <td>Auditório Principal</td>
-                      <td> - </td>
-                      <td> - </td>
-                      <td>
-                        <ul>
-                          <li>Gabriel Dos Santos</li>
-                          <li>Pedro Silva da Silva</li>
-                          <li>Neila Batista Xavier</li>
-                        </ul>
-                      </td>
-                      <td><FiTrash2 /></td>
-                    </tr>
-                    <tr>
-                      <td>12/01/2020</td>
-                      <td>15:00h</td>
-                      <td>Lab VI</td>
-                      <td>13/04/2020</td>
-                      <td>17:00h</td>
-                      <td>
-                        <ul>
-                          <li>Gabriel Dos Santos</li>
-                          <li>Pedro Silva da Silva</li>
-                          <li>Neila Batista Xavier</li>
-                        </ul>
-                      </td>
-                      <td><FiTrash2 /></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+              <DataTable 
+                columns={[
+                  "Data", 
+                  "Horário", 
+                  "Local", 
+                  "Data de Finalização", 
+                  "Horário de Finalização", 
+                  "Participantes", 
+                  ""
+              ]}
+                isFullWidth={true}
+                isScrolled={true}
+              >
+                <DataRow>
+                  <DataItem>12/01/2021</DataItem>
+                  <DataItem>12:45</DataItem>
+                  <DataItem>Auditório Principal</DataItem>
+                  <DataItem>12/01/2021</DataItem>
+                  <DataItem>15:00</DataItem>
+                  <DataItem>
+                    <ul>
+                      <li>Gabriel Dos Santos Lima</li>
+                      <li>Minnie Dos Santos Lima</li>
+                      <li>Jurema Dos Santos Lima</li>
+                    </ul>
+                  </DataItem>
+                  <DataItem><FiTrash2 /></DataItem>
+                </DataRow>
+              </DataTable>
             </TableContent>
             <TableContent title="Participantes">
-              <div className="participantes">
-                <table>
-                  <thead>  
-                    <tr>
-                      <th>Nome</th>
-                      <th>Matrícula</th>
-                      <th>CPF</th>
-                      <th>Grau Acadêmico</th>
-                      <th>Função</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Gabriel Dos Santos Lima</td>
-                      <td>201811440266</td>
-                      <td>000000000-00</td>
-                      <td>Integrado Nível Médio</td>
-                      <td>Discente</td>
-                      <td><FiTrash2 /></td>
-                    </tr>
-                    <tr>
-                      <td>Pedro Da Silva Silva</td>
-                      <td>201811440266</td>
-                      <td>000000000-00</td>
-                      <td>Mestre</td>
-                      <td>Coordenador</td>
-                      <td><FiTrash2 /></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+              <DataTable 
+                columns={[
+                  "Nome", 
+                  "Matrícula", 
+                  "CPF", 
+                  "Grau Acadêmico", 
+                  "Função",
+                  ""
+              ]}
+                isFullWidth={true}
+                isScrolled={true}
+              >
+                <DataRow>
+                  <DataItem>Gabriel Dos Santos Lima</DataItem>
+                  <DataItem>2018324100</DataItem>
+                  <DataItem>XXX.XXX.XXX-XX</DataItem>
+                  <DataItem>Mestre</DataItem>
+                  <DataItem>Coordenador</DataItem>
+                  <DataItem><FiTrash2 /></DataItem>
+                </DataRow>
+              </DataTable>
             </TableContent>
             <TableContent title="Documentos">
-              <div className="documento">
-                <FiPaperclip size={20}/>
-                <span>Ata de relatório</span>
-                <FiDownload className="download" size={20}/>
-              </div>  
+              <DownloadTable>
+                <DownloadItem>
+                  <FiPaperclip size={20}/>
+                  <span>Ata de relatório</span>
+                  <FiDownload className="download" size={20}/>
+                </DownloadItem>
+              </DownloadTable> 
             </TableContent>
           </Table>
         </Main>
