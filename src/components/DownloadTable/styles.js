@@ -5,7 +5,9 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
     width: 100%;
-    max-height: 360px;
+    padding: 8px;
+    min-height: 360px;
+    max-height: 460px;
     overflow-y: auto;
 
     .documento{

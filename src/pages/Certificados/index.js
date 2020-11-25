@@ -1,15 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { FiPaperclip } from 'react-icons/fi'
-import { FaRegEdit } from 'react-icons/fa'
+import { FiPaperclip, FiDownload} from 'react-icons/fi'
 
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import TreeBar from '../../components/TreeBar'
 import ContainerMain from '../../components/ContainerMain'
+import DownloadTable, { DownloadItem } from '../../components/DownloadTable'
 import Main from '../../components/Main'
 
-import { Container, TableDocuments } from './styles'
+import { Container } from './styles'
 
 
 const Certificados = ()=> {
@@ -23,14 +23,13 @@ const Certificados = ()=> {
       </TreeBar>
 
         <Main>
-          <h1>Certificados</h1>
-          <TableDocuments>
-              <div className="documento">
-                    <FiPaperclip size={20}/>
-                    <span>Certificado - Banca 21/12/2020</span>
-                    <FaRegEdit className="download" size={20}/>
-              </div>  
-          </TableDocuments>
+          <DownloadTable>
+            <DownloadItem>
+              <FiPaperclip size={20}/>
+              <span>Ata de relatório</span>
+              <FiDownload className="download" size={20}/>
+            </DownloadItem>
+          </DownloadTable>
         </Main>
         <Footer/>
       </ContainerMain>
