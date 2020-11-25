@@ -149,8 +149,7 @@ const EstagioDescricao = () => {
               </DownloadTable> 
             </TableContent>
           </Table>
-        </Main>
-        
+        </Main>  
         <Footer />
       </ContainerMain>
     </Container>
