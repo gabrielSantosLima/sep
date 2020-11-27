@@ -2,23 +2,32 @@ import React from 'react';
 
 import { Container } from './styles';
 
-const DataTable = ({ fields, children }) => {
-
-  function renderFields(field){
-    const indexOf = fields.indexOf(field)
+const DataTable = ({ 
+  columns, 
+  children, 
+  isFullWidth = false, 
+  isScrolled = false 
+}) => {
+  
+  function renderColumns(column){
+    const indexOf = columns.indexOf(column)
     return(
-      <th key={indexOf}>{field}</th>
+      <th key={indexOf}>{column}</th>
     )
   }
 
-  if(!fields) return <span>Sem campos registrados</span>
-
+  if(!columns) return <span>Sem campos registrados</span>
+  
   return(
-      <Container>
+      <Container 
+        className="data-table" 
+        isFullWidth={isFullWidth} 
+        isScrolled={isScrolled}
+      >
         <thead>  
-          <tr>
-            { fields.map(renderFields) }
-          </tr>
+          <DataRow>
+            { columns.map(renderColumns) }
+          </DataRow>
         </thead>
         <tbody>
           {children}

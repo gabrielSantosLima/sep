@@ -4,9 +4,9 @@ export const Container = styled.header`
     
     .main{
         background-color: #027DC5;
-        padding:10px;
+        padding: 10px;
         color: white;
-        font-size: 11pt;
+        font-size: 1.2rem;
     }
 
     .nav{

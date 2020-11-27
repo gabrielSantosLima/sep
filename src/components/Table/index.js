@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 
 import { Container } from './styles';
 
-const Table = ({ children }) => {
+const Table = ({ children, startIndex = 0 }) => {
     const isChildrenEmpty = !children
     const isNotArray = !children?.length
-    const [indexFrame, setIndexFrame] = useState(0)
+    const [indexFrame, setIndexFrame] = useState(startIndex)
     
     function handleFrame(index){
         setIndexFrame(index)

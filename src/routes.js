@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 
 import Login from './pages/Login';
+import Perfil from './pages/Perfil';
 import CadastroDiscente from './pages/CadastroDiscente';
 import CadastroProfessor from './pages/CadastroProfessor';
 import CadastroCoordenadora from './pages/CadastroCoordenadora';
@@ -17,6 +18,7 @@ const Routes = () => {
   return (
     <BrowserRouter>
       <Route component={ Login } path={ ["/", "/login"] } exact/>
+      <Route component={ Perfil } path={"/perfil"} />
       <Route component={ CadastroDiscente } path="/cadastro-discente" exact/>
       <Route component={ CadastroProfessor } path="/cadastro-professor" exact/>
       <Route component={ CadastroCoordenadora } path="/cadastro-coordenadora" exact/>

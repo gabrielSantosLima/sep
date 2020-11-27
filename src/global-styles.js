@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
@@ -28,6 +27,7 @@ const GlobalStyle = createGlobalStyle`
    --color-background-title:  #62A6CD;
    --color-border-table: #676363;
    --color-title-table: #FFFFFF;
+   --color-scroll-bar: #8f8d8d;
   }
 
   html,body, #root{
@@ -41,7 +41,11 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     outline: none;
     border: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto','Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+
+  button, a, i, img, svg{
+    cursor: pointer;
   }
 
   ul{
@@ -62,8 +66,19 @@ const GlobalStyle = createGlobalStyle`
     transition: .4s;
   }
   
-  button:hover{
+  button:hover, a:hover, svg:hover{
     filter: brightness(80%);
+  }
+
+  ::-webkit-scrollbar{
+    width: 10px;
+    background: transparent; 
+  }
+
+  ::-webkit-scrollbar-thumb{
+    border-radius: 8px;
+    background: var(--color-scroll-bar);
+    transition: .4s;
   }
 `
 

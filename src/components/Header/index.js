@@ -1,34 +1,35 @@
 import React from 'react';
-import { FiUser, FiFileText, FiGitBranch, FiLogOut, FiHome } from 'react-icons/fi'
+import { Link } from 'react-router-dom'
+import { FiUser, FiGitBranch, FiLogOut, FiHome } from 'react-icons/fi'
 import { GoBookmark } from 'react-icons/go'
 
 import { Container } from './styles';
 
-const Header = ( props ) => {
+const Header = ( {isLogin} ) => {
   return (
     <Container className="header">
       <div className="main">
-        SEP - SISTEMA DE ESTÁGIO E PROJETO
+        SEP - SISTEMA DE ESTÁGIO E PCCT
       </div>
       {
-        props.isLogin &&
+        isLogin &&
         <ul className="nav">
           <li className="left">
             <ul className="sub-nav">
               <li className="nav-item">
-                <FiHome />
+                <Link to="/home"><FiHome /></Link>
               </li>
               <li className="nav-item">
                 <FiUser />
-                Perfil    
+                <Link to="/perfil">Perfil</Link>    
               </li>
               <li className="nav-item">
                 <FiGitBranch />
-                Bancas
+                <Link to="/bancas">Bancas</Link>
               </li>
               <li className="nav-item">
                 <GoBookmark />
-                Certificados
+                <Link to="/certificados">Certificados</Link>
               </li>
             </ul>
           </li>
