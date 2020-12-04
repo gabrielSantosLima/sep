@@ -22,7 +22,8 @@ export const Container = styled.div`
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 100px;
+        padding: 10px;
+        max-width: 300px;
         height: 100%;
         user-select: none;
         cursor: pointer;
