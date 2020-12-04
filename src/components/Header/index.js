@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 import { FiUser, FiGitBranch, FiLogOut, FiHome } from 'react-icons/fi'
 import { GoBookmark } from 'react-icons/go'
 
+import { FontContext } from './../../context/FontProvider'
+
 import { Container } from './styles';
 
 const Header = ( {isLogin} ) => {
+  const { nextFontSize, backFontSize } = useContext(FontContext)
+  const history = useHistory()
+
+  function handleLogout(){
+    history.push('/')
+  }
+
   return (
     <Container className="header">
       <div className="main">
@@ -19,10 +29,10 @@ const Header = ( {isLogin} ) => {
               <li className="nav-item">
                 <Link to="/home"><FiHome /></Link>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <FiUser />
                 <Link to="/perfil">Perfil</Link>    
-              </li>
+              </li> */}
               <li className="nav-item">
                 <FiGitBranch />
                 <Link to="/bancas">Bancas</Link>
@@ -35,13 +45,13 @@ const Header = ( {isLogin} ) => {
           </li>
           <li className="right">
             <ul className="sub-nav">
-              <li className="nav-item change-font">
+              <li className="nav-item change-font" onClick={nextFontSize}>
                 A+
               </li>
-              <li className="nav-item change-font">
+              <li className="nav-item change-font" onClick={backFontSize}>
                 A-
               </li>
-              <li className="nav-item">
+              <li className="nav-item" onClick={handleLogout}>
                 <FiLogOut />
                 Sair
               </li>
