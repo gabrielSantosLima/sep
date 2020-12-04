@@ -28,6 +28,8 @@ const GlobalStyle = createGlobalStyle`
    --color-border-table: #676363;
    --color-title-table: #FFFFFF;
    --color-scroll-bar: #8f8d8d;
+   --color-profile-container: #EBEBEB;
+   --color-profile-user-icon: #C4C4C4;
   }
 
   html,body, #root{

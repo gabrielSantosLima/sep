@@ -15,11 +15,10 @@ const isScrolled = `
 `;
 
 export const Container = styled.table`  
-    box-shadow: 0.2px 0.2px 2px 0px rgba(0,0,0,0.4);
+    box-shadow: ${props=> props.hasBorder && "0.2px 0.2px 2px 0px rgba(0,0,0,0.4);"};
     width: ${props => props.isFullWidth ? "100%" : "80%"};
-
+    
     ${props => props.isScrolled ? isScrolled : ""}
-
     th{
         font-size: 1.4rem;
         background-color: var(--color-title-table);
