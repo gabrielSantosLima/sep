@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 
 export const Container = styled.header`
-    
+    li{
+        user-select: none;
+    }
+
     .main{
         background-color: #027DC5;
         padding: 10px;
