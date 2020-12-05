@@ -26,6 +26,9 @@ const GlobalStyle = createGlobalStyle`
    --color-scroll-bar: #8f8d8d;
    --color-profile-container: #EBEBEB;
    --color-profile-user-icon: #C4C4C4;
+   --color-border-carddev: #f4f1f1;
+   --color-background-info: #f9f9f9;
+
   }
 
   html,body, #root{

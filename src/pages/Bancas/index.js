@@ -68,6 +68,41 @@ const Bancas = ()=> {
                     <DataItem><FiTrash2 /></DataItem>
                   </DataRow>
                 </DataTable>
+                </TableContent>
+
+                 <TableContent title="Bancas Solicitadas">
+                <DataTable 
+                  columns={[
+                    "Data", 
+                    "Horário", 
+                    "Local", 
+                    "Data de Finalização", 
+                    "Horário de Finalização", 
+                    "Participantes", 
+                    "Concluída", 
+                    ""
+                ]}
+                  isFullWidth={true}
+                  isScrolled={true}
+                  hasBorder={false}
+                >
+                  <DataRow>
+                    <DataItem>12/01/2021</DataItem>
+                    <DataItem>12:45</DataItem>
+                    <DataItem>Auditório Principal</DataItem>
+                    <DataItem>12/01/2021</DataItem>
+                    <DataItem>14:00</DataItem>
+                    <DataItem>
+                      <ul>
+                        <li>Gabriel Dos Santos Lima</li>
+                        <li>Minnie Dos Santos Lima</li>
+                        <li>Jurema Dos Santos Lima</li>
+                      </ul>
+                    </DataItem>
+                    <DataItem>Sim</DataItem>
+                    <DataItem><FiTrash2 /></DataItem>
+                  </DataRow>
+                </DataTable>
               </TableContent>
             </Table>
           </Main>
