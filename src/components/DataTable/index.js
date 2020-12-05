@@ -5,8 +5,9 @@ import { Container } from './styles';
 const DataTable = ({ 
   columns, 
   children, 
-  isFullWidth = false, 
-  isScrolled = false 
+  isFullWidth = false,
+  isScrolled = false, 
+  hasBorder = true 
 }) => {
   
   function renderColumns(column){
@@ -23,6 +24,7 @@ const DataTable = ({
         className="data-table" 
         isFullWidth={isFullWidth} 
         isScrolled={isScrolled}
+        hasBorder={hasBorder}
       >
         <thead>  
           <DataRow>

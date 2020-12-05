@@ -3,11 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyle = createGlobalStyle`
   
   :root{
-    /*  
-    Colocar depois como font-size: 1.4rem
-    Fontes: 1px = 0.75pt / 16px = 12pt  
-    */
-    font-size: 62.5%;
+    font-size: ${props => props.fontSize || "62.5%"};
 
    --color-header-nav: #F5E2D2;
    --color-footer: #027DC5; 
@@ -28,6 +24,8 @@ const GlobalStyle = createGlobalStyle`
    --color-border-table: #676363;
    --color-title-table: #FFFFFF;
    --color-scroll-bar: #8f8d8d;
+   --color-profile-container: #EBEBEB;
+   --color-profile-user-icon: #C4C4C4;
   }
 
   html,body, #root{
