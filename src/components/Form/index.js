@@ -4,15 +4,14 @@ import { Container } from './styles';
 
 const Form = ({ children = [], canEditable = true}) => {
     return(
-        <Container>
+        <Container>    
             { children }
             {
                 canEditable && (
-                <FormGroup>
-                    <button id="cancelar">Cancelar</button>
-                    <button id="salvar">Salvar</button>
-                </FormGroup>
-            )
+                    <FormGroup>
+                        <button id="confirm">Salvar</button>
+                    </FormGroup>
+                )
             }
         </Container>
     );

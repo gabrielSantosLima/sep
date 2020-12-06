@@ -6,6 +6,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: ${props => props.fontSize || "62.5%"};
 
    --color-header-nav: #F5E2D2;
+   --color-header-sep-bar: #027DC5;
    --color-footer: #027DC5; 
    --color-body: #C4C4C4; 
    --color-container: #FFFFFF;
@@ -28,6 +29,7 @@ const GlobalStyle = createGlobalStyle`
    --color-profile-user-icon: #C4C4C4;
    --color-border-carddev: #f4f1f1;
    --color-background-info: #f9f9f9;
+   --color-cancel: red;
 
   }
 
@@ -72,14 +74,12 @@ const GlobalStyle = createGlobalStyle`
   }
 
   ::-webkit-scrollbar{
-    width: 10px;
-    background: transparent; 
+    width: 12px;
   }
 
   ::-webkit-scrollbar-thumb{
     border-radius: 8px;
     background: var(--color-scroll-bar);
-    transition: .4s;
   }
 `
 

@@ -39,21 +39,17 @@ export const Container = styled.form`
             width: 100%;
             padding: 0 30%;
             justify-content: space-around;
-        }
-
-        button{
-            font-size: 1.4rem;
-            width: 100px;
-            height: 30px;
-        }
-
-        #salvar{
-            color: #FFF;
-            background: var(--color-confirm);
+        
+            #confirm{
+                font-size: 1.4rem;
+                width: 50%;
+                font-weight: bold;
+                padding: 8px;
+                margin: 8px;
+                color: #FFF;
+                background: var(--color-confirm);
+            }
         }
         
-        #cancelar{
-            background: var(--color-textfield);
-        }
     }
 `;

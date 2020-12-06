@@ -6,7 +6,7 @@ export const Container = styled.header`
     }
 
     .main{
-        background-color: #027DC5;
+        background-color: var(--color-header-sep-bar);
         padding: 10px;
         color: white;
         font-size: 1.2rem;

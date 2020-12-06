@@ -37,7 +37,7 @@ const Routes = () => {
         <Route component={ CadastroBanca } path="/cadastro-banca" exact/>
         <Route component={ Certificados } path="/certificados" exact/>
         <Route component={ Sobre } path="/sobre" exact />
-        <Route component={ ConfirmaBanca } path="/confirma-banca" exact />
+        <Route component={ ConfirmaBanca } path="/confirmar-banca" exact />
         <Route component={ PaginaNaoEncontrada }/>
       </Switch>
     </BrowserRouter>

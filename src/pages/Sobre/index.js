@@ -39,7 +39,7 @@ const Sobre = () => {
                 </ul>
                 
                 <ul className="depto area">
-                <a target="_blank" href="http://www2.ifam.edu.br/campus/cmc/diretorias/ensino/diretoria-de-ensino/departamentos#DAIC">
+                <a href="http://www2.ifam.edu.br/campus/cmc/diretorias/ensino/diretoria-de-ensino/departamentos#DAIC">
                   <h3>DAIC</h3>
                 </a>
                 </ul>
@@ -47,7 +47,7 @@ const Sobre = () => {
                 <ul className="github area">
                   <h3>Código Fonte</h3>
                   <p className="version">
-                  <a target="_blank" href="https://github.com/gabrielSantosLima/sep">
+                  <a href="https://github.com/gabrielSantosLima/sep">
                 <DiGithubFull size={40}/>
                 </a>
                   </p>
@@ -56,27 +56,37 @@ const Sobre = () => {
 
               <h2> Desenvolvido por</h2>
           <div className="developers">
-
-              <CardDev>
-                <div className="image">
-                </div>
-
-                <ul>
-
+            <CardDev>
+              <div className="image"><img src="https://github.com/gabrielSantosLima.png" alt="Gabriel Lima"/></div>
+              <ul>
                 <li id="name">
-                Gabriel dos Santos Lima
+                  Gabriel dos Santos Lima
                 </li>
-
                 <li id="desc">
-                Técnico em Informática e programador Web e Mobile.
+                  Técnico em Informática e programador Web e Mobile.
                 </li>
-
                 <li id="git">
-                <a target="_blank" href="https://github.com/gabrielSantosLima">
-                <AiFillGithub size={30}/>
-                </a>
+                  <a href="https://github.com/gabrielSantosLima">
+                    <AiFillGithub size={30}/>
+                  </a>
                 </li>
-                </ul>
+              </ul>
+            </CardDev>
+            <CardDev>
+              <div className="image"><img src="https://github.com/melinnediniz.png" alt="Melinne Diniz"/></div>
+              <ul>
+                <li id="name">
+                  Melinne Diniz de Oliveira
+                </li>
+                <li id="desc">
+                  Técnico em Informática e programador Web e Mobile.
+                </li>
+                <li id="git">
+                  <a href="https://github.com/melinnediniz">
+                    <AiFillGithub size={30}/>
+                  </a>
+                </li>
+              </ul>
             </CardDev>
           </div>
 

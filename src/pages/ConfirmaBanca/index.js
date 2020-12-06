@@ -18,11 +18,8 @@ import Title from '../../components/Title'
 import { Container } from './styles.js';
 
 const ConfirmarBanca = () => {
-
   return (
-
     <Container>
-
       <ContainerMain>
         <Header isLogin={true} />
         <TreeBar>
@@ -31,9 +28,7 @@ const ConfirmarBanca = () => {
           <li><Link to="/confirmar-banca">Confirmar Solicitação de Banca</Link></li>
         </TreeBar>
         <Main>
-
-
-        <Table>
+          <Table>
             <TableContent title="Banca Solicitada">
                  <Form>
                 <FormGroup>
@@ -106,14 +101,8 @@ const ConfirmarBanca = () => {
                 </FormGroup>
                 </Form>
             </TableContent>
-           
-           
           </Table>
-
-       <Title> 
-       Participantes 
-       </Title>
-
+          <Title>Participantes</Title>
           <DataTable 
             columns={["Nome","Matrícula","CPF","Grau Acadêmico","Função"]}
             isFullWidth = {true}
@@ -128,8 +117,6 @@ const ConfirmarBanca = () => {
             </DataRow>
           </DataTable>
         </Main>
-
-
         <Footer />
       </ContainerMain>
     </Container>
