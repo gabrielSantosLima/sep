@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom'
-import { FiUser, FiGitBranch, FiLogOut, FiHome } from 'react-icons/fi'
+import { FiUser, FiGitBranch, FiLogOut, FiHome, FiHelpCircle } from 'react-icons/fi'
 import { GoBookmark } from 'react-icons/go'
 
 import { FontContext } from './../../context/FontProvider'
@@ -40,6 +40,10 @@ const Header = ( {isLogin} ) => {
               <li className="nav-item">
                 <GoBookmark />
                 <Link to="/certificados">Certificados</Link>
+              </li>
+              <li className="nav-item">
+                <FiHelpCircle />
+                <Link to="/sobre">Sobre</Link>
               </li>
             </ul>
           </li>

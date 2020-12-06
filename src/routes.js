@@ -15,6 +15,9 @@ import CadastroProjeto from './pages/CadastroProjeto';
 import CadastroEstagio from './pages/CadastroEstagio';
 import CadastroBanca from './pages/CadastroBanca';
 import PaginaNaoEncontrada from './pages/PaginaNaoEncontrada';
+import Sobre from './pages/Sobre';
+import ConfirmaBanca from './pages/ConfirmaBanca';
+
 
 const Routes = () => {
   return (
@@ -33,6 +36,8 @@ const Routes = () => {
         <Route component={ Bancas } path="/bancas" exact/>
         <Route component={ CadastroBanca } path="/cadastro-banca" exact/>
         <Route component={ Certificados } path="/certificados" exact/>
+        <Route component={ Sobre } path="/sobre" exact />
+        <Route component={ ConfirmaBanca } path="/confirma-banca" exact />
         <Route component={ PaginaNaoEncontrada }/>
       </Switch>
     </BrowserRouter>
