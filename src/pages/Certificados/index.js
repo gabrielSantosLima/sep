@@ -8,20 +8,21 @@ import TreeBar from '../../components/TreeBar'
 import ContainerMain from '../../components/ContainerMain'
 import DownloadTable, { DownloadItem } from '../../components/DownloadTable'
 import Main from '../../components/Main'
+import Title from '../../components/Title'
 
 import { Container } from './styles'
 
 
 const Certificados = ()=> {
     return(
-        <Container>
-        <ContainerMain>
-          <Header isLogin={true}/>
-      <TreeBar>
-        <li><Link to="/home">Tela Inicial</Link></li>
-        <li><Link to="/certificados">Certificados</Link></li>
-      </TreeBar>
-
+    <Container>
+      <ContainerMain>
+        <Header isLogin={true}/>
+        <TreeBar>
+          <li><Link to="/home">Tela Inicial</Link></li>
+          <li><Link to="/certificados">Certificados</Link></li>
+        </TreeBar>
+        <Title>Certificados</Title>
         <Main>
           <DownloadTable>
             <DownloadItem>

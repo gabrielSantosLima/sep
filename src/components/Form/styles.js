@@ -34,26 +34,28 @@ export const Container = styled.form`
             padding: 8px;
         }
 
+        ${props => props.isEditable && `
         :last-child{
             flex-direction: initial;
             width: 100%;
             padding: 0 30%;
             justify-content: space-around;
-        }
-
-        button{
-            font-size: 1.4rem;
-            width: 100px;
-            height: 30px;
-        }
-
-        #salvar{
-            color: #FFF;
-            background: var(--color-confirm);
-        }
         
-        #cancelar{
-            background: var(--color-textfield);
+            button{
+                font-size: 1.4rem;
+                width: 50%;
+                padding: 8px;
+                margin: 8px;
+            }
+            #confirm{
+                color: #FFF;
+                background: var(--color-confirm);
+            }
+            #cancel{
+                color: var(--color-cancel);
+                border: 1px solid var(--color-cancel);
+            }
         }
+        `
     }
 `;

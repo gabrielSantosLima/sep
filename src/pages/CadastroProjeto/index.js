@@ -47,7 +47,7 @@ const CadastroProjeto = () => {
                     Curso
                   </label>
                   <select name="curso">
-                    <option value="INF" selected>INF</option> 
+                    <option value="INF" selected >INF</option> 
                     <option value="IQUI" >IQUI</option>
                     <option value="IQUI">IMEC</option>
                     <option value="IEDF">IEDF</option>
@@ -129,7 +129,7 @@ const CadastroProjeto = () => {
                     Curso
                   </label>
                   <select name="curso">
-                    <option value="INF" selected>INF</option> 
+                    <option value="INF" selected >INF</option> 
                     <option value="IQUI" >IQUI</option>
                     <option value="IQUI">IMEC</option>
                     <option value="IEDF">IEDF</option>
@@ -175,7 +175,7 @@ const CadastroProjeto = () => {
                     Turno
                   </label>
                   <select name="curso">
-                    <option value="INTEGRADO" selected>INTEGRADO</option> 
+                    <option value="INTEGRADO" selected >INTEGRADO</option> 
                     <option value="SUBSEQUENTE" >SUBSEQUENTE</option>
                     <option value="GRADUAÇÃO">GRADUAÇÃO</option>
                     <option value="MESTRADO">MESTRADO</option>
@@ -236,7 +236,7 @@ const CadastroProjeto = () => {
                     Função
                   </label>
                   <select name="funcao">
-                    <option value="COORDENADOR" selected>COORDENADOR</option> 
+                    <option value="COORDENADOR" selected >COORDENADOR</option> 
                     <option value="COODENADOR_ADJUNTO" >COORDENADOR ADJUNTO</option> 
                     <option value="ORIENTADOR" >ORIENTADOR</option>
                     <option value="COLABORADOR">COLABORADOR</option>
@@ -248,7 +248,7 @@ const CadastroProjeto = () => {
                     Formação
                   </label>
                   <select name="formacao">
-                    <option value="GRADUADO" selected>GRADUADO</option> 
+                    <option value="GRADUADO" selected >GRADUADO</option> 
                     <option value="MESTRE" >MESTRE</option> 
                     <option value="DOUTOR" >DOUTOR</option>
                   </select>
@@ -296,7 +296,7 @@ const CadastroProjeto = () => {
                     Função
                   </label>
                   <select name="funcao">
-                    <option value="COORDENADOR" selected>COORDENADOR</option> 
+                    <option value="COORDENADOR" selected >COORDENADOR</option> 
                     <option value="COODENADOR_ADJUNTO" >COORDENADOR ADJUNTO</option> 
                     <option value="ORIENTADOR" >ORIENTADOR</option>
                     <option value="COLABORADOR">COLABORADOR</option>
@@ -308,7 +308,7 @@ const CadastroProjeto = () => {
                     Formação
                   </label>
                   <select name="formacao">
-                    <option value="GRADUADO" selected>GRADUADO</option> 
+                    <option value="GRADUADO" selected >GRADUADO</option> 
                     <option value="MESTRE" >MESTRE</option> 
                     <option value="DOUTOR" >DOUTOR</option>
                   </select>

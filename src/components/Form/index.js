@@ -1,18 +1,57 @@
 import React from 'react';
+import { useState } from 'react';
 
 import { Container } from './styles';
+import ConfirmContainer from './../ConfirmContainer'
 
-const Form = ({ children = [], canEditable = true}) => {
+const Form = ({ 
+    callback, 
+    children = [], 
+    canEditable = true, 
+    hasConfirmation = true,
+    hasCancelButton = false,
+    messageCancelButton = "Cancelar",
+    messageConfirmationButton = "Salvar"
+}) => {
+    const [ isConfirmVisibility, setIsConfirmVisibility ] = useState(false)
+
+    function handleSubmit(e){
+        e.preventDefault();
+        if(!hasConfirmation) {
+            callback()
+            return
+        }
+        setIsConfirmVisibility(true)
+    }
+
+    function handleConfirm(resp){
+        alert(resp)
+        if(!resp) return
+        callback()
+    }
+
     return(
-        <Container>
+        <Container isEditable={canEditable}>
+            { isConfirmVisibility && (
+                <ConfirmContainer 
+                    response={handleConfirm} 
+                    onEndConfirm={() => setIsConfirmVisibility(false)}
+                />
+            )}
             { children }
             {
                 canEditable && (
-                <FormGroup>
-                    <button id="cancelar">Cancelar</button>
-                    <button id="salvar">Salvar</button>
-                </FormGroup>
-            )
+                    <FormGroup>
+                        { hasCancelButton && (
+                            <button id="cancel">
+                                {messageCancelButton}
+                            </button>
+                        )}
+                        <button onClick={handleSubmit} id="confirm">
+                            {messageConfirmationButton}
+                        </button>
+                    </FormGroup>
+                )
             }
         </Container>
     );

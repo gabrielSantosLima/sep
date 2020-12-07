@@ -15,17 +15,16 @@ export const Container = styled.div`
     }
 
     p{
-        width: 700px;
+        width: 70%;
         font-size: 1.4rem;
         text-align: justify;
     }
-
+    main{
         a{
-        color: inherit;
-        text-decoration: none;
-
+            color: inherit;
+            text-decoration: none;
+        }
     }
-
 `
 
 export const CardDev = styled.div`
@@ -36,13 +35,15 @@ export const CardDev = styled.div`
     padding: 10px;
     border-radius: 5%;
 
-    .image{ 
-    margin: 8px auto;
-    width: 60px;
-    height: 60px;
-    background-color: var(--color-profile-user-icon);
-    border-radius: 60%;
-    margin-right: 10px;
+    .image, img{ 
+        margin: 8px auto;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        margin-right: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     ul{
