@@ -4,7 +4,8 @@ import { Container } from './styles';
 
 const DataTable = ({ 
   columns, 
-  children, 
+  children,
+  hasHover = false,
   isFullWidth = false,
   isScrolled = false, 
   hasBorder = true 
@@ -21,10 +22,10 @@ const DataTable = ({
   
   return(
       <Container 
-        className="data-table" 
         isFullWidth={isFullWidth} 
         isScrolled={isScrolled}
         hasBorder={hasBorder}
+        hasHover={hasHover}
       >
         <thead>  
           <DataRow>
@@ -40,8 +41,8 @@ const DataTable = ({
 
 export default DataTable;
 
-export const DataRow = ({ children })=>{
-  return <tr>{children}</tr>
+export const DataRow = ({ children, onClick })=>{
+  return <tr onClick={onClick}>{children}</tr>
 }
 
 export const DataItem = ({ children })=>{

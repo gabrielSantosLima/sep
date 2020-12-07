@@ -3,21 +3,29 @@ import { MdClose } from 'react-icons/md'
 
 import { Container, ContainerContent, ContainerMessage, ContainerButton } from './styles';
 
-const ConfirmContainer = ({isVisibility = true, message = "Você deseja realmente fazer esta operação?", callback}) => {
+const ConfirmContainer = ({
+    isVisibility = true, 
+    message = "Você deseja continuar?", 
+    response, 
+    onEndConfirm
+}) => {
   const [ visibility, setVisibility ] = useState(isVisibility);
 
   function close(){
     setVisibility(false)
+    onEndConfirm()
   }
   
   function handleOnConfirm(){
-    callback(true)
+    response(true)
     close()
+    onEndConfirm()
   }
   
   function handleOnCancel(){
-    callback(false)
+    response(false)
     close()
+    onEndConfirm()
   }
 
   if(!visibility) return <></>

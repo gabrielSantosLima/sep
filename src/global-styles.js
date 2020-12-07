@@ -30,7 +30,9 @@ const GlobalStyle = createGlobalStyle`
    --color-border-carddev: #f4f1f1;
    --color-background-info: #f9f9f9;
    --color-cancel: red;
-
+   --color-hover: #d9d8d7;
+   --color-sucess: green;
+   --color-fail: red;
   }
 
   html,body, #root{
@@ -65,6 +67,7 @@ const GlobalStyle = createGlobalStyle`
 
   button{
     cursor: pointer;
+    font-weight: bold;
     border: 0;
     transition: .4s;
   }

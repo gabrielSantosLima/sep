@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import { FiMapPin, FiClock, FiCalendar, FiBookmark, FiUsers  } from 'react-icons/fi'
+import { FiMapPin, FiClock, FiCalendar, FiBookmark, FiUsers } from 'react-icons/fi'
 
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
@@ -13,9 +13,14 @@ import Table from '../../components/Table'
 import TableContent from '../../components/TableContent'
 import Title from '../../components/Title'
 
-import { Container } from './styles.js';
+import { Container, ButtonDelete, ButtonList, Button } from './styles.js';
 
-const ConfirmarBanca = () => {
+const BancaDescricao = () => {
+  // const history = useHistory();
+
+  // function handleCadastrarFichaAvaliacao(){
+  // }
+
   return (
     <Container>
       <ContainerMain>
@@ -25,15 +30,14 @@ const ConfirmarBanca = () => {
           <li><Link to="/confirmar-banca">Confirmar Solicitação de Banca</Link></li>
         </TreeBar>
         <Main>
-          <Title>Confirmação de Solicitação de Banca</Title>
+          <Title>Descrição de Banca</Title>
+          <ButtonList>
+            <li><Button>Cadastrar Ficha de Avaliação</Button></li>
+            <li><ButtonDelete>Deletar Banca</ButtonDelete></li>
+          </ButtonList>
           <Table>
-            <TableContent title="Banca Solicitada">
-              <Form 
-                hasConfirmation={true}
-                hasCancelButton={true}
-                messageCancelButton="Cancelar Banca"
-                messageConfirmationButton="Aprovar Banca"
-                >
+            <TableContent title="Geral">
+              <Form canEditable={false}>
                 <FormGroup>
                   <label htmlFor="local">
                     <FiMapPin />
@@ -41,7 +45,7 @@ const ConfirmarBanca = () => {
                   </label>
                   <input 
                     name="local" 
-                    placeholder="" 
+                    placeholder="Digite o local..." 
                     type="text"
                     disabled
                     />
@@ -63,14 +67,13 @@ const ConfirmarBanca = () => {
                     Horário de Início
                   </label>
                   <input 
-                    name="inicio" 
-                    placeholder="" 
-                    type="text"
+                    name="inicio"  
+                    type="time"
                     disabled
                   />
                 </FormGroup>
                 <FormGroup>
-                <label htmlFor="curso">
+                  <label htmlFor="curso">
                     <FiUsers />
                     Curso
                   </label>
@@ -84,20 +87,19 @@ const ConfirmarBanca = () => {
                     Horário de Término
                   </label>
                   <input 
-                    name="termino" 
-                    placeholder="" 
-                    type="text"
+                    name="termino"
+                    type="time"
                     disabled
                   />
                 </FormGroup>
                  <FormGroup>
-                  <label htmlFor="nome">
+                  <label htmlFor="titulo">
                     <FiBookmark />
                     Projeto/Estágio
                   </label>
                   <input 
-                    name="nome" 
-                    placeholder="" 
+                    name="titulo" 
+                    placeholder="Digite o titulo..." 
                     type="text"
                     disabled
                   />
@@ -129,4 +131,4 @@ const ConfirmarBanca = () => {
 }
 
 
-export default ConfirmarBanca;
+export default BancaDescricao;

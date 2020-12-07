@@ -26,6 +26,7 @@ export const ContainerContent = styled.div`
     width: 40%;
     min-height: 30%;
     padding: 8px;
+    border-radius: 4px;
     display: flex;
     flex-direction: column;
     background-color: var(--color-container);
@@ -41,6 +42,10 @@ export const ContainerContent = styled.div`
 
 export const ContainerMessage = styled.div`
     flex: 1;
+
+    h1{
+        text-align: center;
+    }
 `;
 
 export const ContainerButton = styled.div`
@@ -57,5 +62,9 @@ export const ContainerButton = styled.div`
     #confirm{
         color: white;
         background-color: var(--color-confirm);
+    }
+    #cancel{
+        color: red;
+        border: 1px solid var(--color-cancel);
     }
 `;

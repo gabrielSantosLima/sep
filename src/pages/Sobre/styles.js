@@ -15,17 +15,16 @@ export const Container = styled.div`
     }
 
     p{
-        width: 700px;
+        width: 70%;
         font-size: 1.4rem;
         text-align: justify;
     }
-
+    main{
         a{
-        color: inherit;
-        text-decoration: none;
-
+            color: inherit;
+            text-decoration: none;
+        }
     }
-
 `
 
 export const CardDev = styled.div`

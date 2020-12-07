@@ -14,7 +14,6 @@ import { Container, CardDev, Info } from './styles';
 const Sobre = () => {
   return(
     <Container>
-
       <ContainerMain>
         <Header isLogin={true} />
         <TreeBar>
@@ -22,42 +21,38 @@ const Sobre = () => {
           <li><Link to="/sobre">Sobre</Link></li>
         </TreeBar>
         <Main>
-         
-            <h1> SEP - Sistema de Estágio e Projeto </h1>
-            <p> 
-            O SEP simplifica o processo de avaliação de estágios e projetos submetidos aos alunos concluentes sob
-            a responsabilidade do Departamento Acadêmico de Informação e Comunicação (DAIC) através dos módulos de: 
-            submissão e controle dos projetos de conclusão de curso, submissão e controle de estágios, submissão e 
-            controle de bancas de avaliação, controle de documentos referentes às bancas de avaliação, emissão de certificados.
-
-            </p>
-
-            <Info>
-                <ul className="version area">
-                  <h3>Versão</h3>
-                  <p className="version">1.0</p>
-                </ul>
-                
-                <ul className="depto area">
-                <a href="http://www2.ifam.edu.br/campus/cmc/diretorias/ensino/diretoria-de-ensino/departamentos#DAIC">
-                  <h3>DAIC</h3>
+          <h1> SEP - Sistema de Estágio e Projeto </h1>
+          <p> 
+          O SEP simplifica o processo de avaliação de estágios e projetos submetidos aos alunos concluentes sob
+          a responsabilidade do Departamento Acadêmico de Informação e Comunicação (DAIC) através dos módulos de: 
+          submissão e controle dos projetos de conclusão de curso, submissão e controle de estágios, submissão e 
+          controle de bancas de avaliação, controle de documentos referentes às bancas de avaliação, emissão de certificados.
+          </p>
+          <Info>
+            <ul className="version area">
+              <h3>Versão</h3>
+              <p className="version">1.0</p>
+            </ul>
+            <ul className="depto area">
+              <a href="http://www2.ifam.edu.br/campus/cmc/diretorias/ensino/diretoria-de-ensino/departamentos#DAIC">
+                <h3>DAIC</h3>
+              </a>
+            </ul>
+            <ul className="github area">
+              <h3>Código Fonte</h3>
+              <p className="version">
+                <a href="https://github.com/gabrielSantosLima/sep">
+                  <DiGithubFull size={40}/>
                 </a>
-                </ul>
-
-                <ul className="github area">
-                  <h3>Código Fonte</h3>
-                  <p className="version">
-                  <a href="https://github.com/gabrielSantosLima/sep">
-                <DiGithubFull size={40}/>
-                </a>
-                  </p>
-                </ul>
-            </Info>
-
-              <h2> Desenvolvido por</h2>
+              </p>
+            </ul>
+          </Info>
+          <h2> Equipe de desenvolvimento</h2>
           <div className="developers">
             <CardDev>
-              <div className="image"><img src="https://github.com/gabrielSantosLima.png" alt="Gabriel Lima"/></div>
+              <div className="image">
+                <img src="https://github.com/gabrielSantosLima.png" alt="Gabriel Lima"/>
+              </div>
               <ul>
                 <li id="name">
                   Gabriel dos Santos Lima
@@ -89,9 +84,7 @@ const Sobre = () => {
               </ul>
             </CardDev>
           </div>
-
         </Main>
-          
         <Footer />
       </ContainerMain>
     </Container>

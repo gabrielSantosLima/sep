@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
-import { FiPaperclip, FiBold, FiMapPin, FiMap, FiDownload, FiTrash2 } from 'react-icons/fi'
+import { Link, useHistory } from 'react-router-dom'
+import { FiPaperclip, FiBold, FiMapPin, FiMap, FiDownload, FiTrash2, FiChevronRight} from 'react-icons/fi'
 import { MdAccessTime } from 'react-icons/md'
 import { BsNewspaper } from 'react-icons/bs'
 
@@ -14,19 +14,35 @@ import Table from '../../components/Table'
 import TableContent from '../../components/TableContent'
 import Form, { FormGroup } from '../../components/Form';
 import DownloadTable, { DownloadItem } from '../../components/DownloadTable';
+import Title from '../../components/Title';
 
-import { Container } from './styles';
+import { Button, ButtonList, ButtonDelete, ButtonConfirm, Container } from './styles';
 
 const ProjetoDescricao = () => {
+  const history = useHistory()
+
+  function handleCadastrarBanca(){
+    history.push("/cadastro-banca")
+  }
+
+  function handleDescricaoBanca(){
+    history.push("/descricao-banca")
+  }
+
   return (
     <Container>
       <ContainerMain>
         <Header isLogin={true}/>
         <TreeBar>
           <li><Link to="/home">Tela Inicial</Link></li>
-          <li><Link to="/projetos">Projetos</Link></li>
+          <li><Link to="/descricao-projeto">Descrição de Projeto</Link></li>
         </TreeBar>
         <Main>
+          <Title>Descrição de Projeto</Title>
+          <ButtonList>
+            <li><ButtonConfirm>Concluir Projeto</ButtonConfirm></li>
+            <li><ButtonDelete>Deletar Projeto</ButtonDelete></li>
+          </ButtonList>
           <Table>
             <TableContent title="Descrição">
               <Form>
@@ -98,6 +114,9 @@ const ProjetoDescricao = () => {
               </Form>
             </TableContent>
             <TableContent title="Bancas">
+              <ButtonList>
+                <li><Button onClick={handleCadastrarBanca}>Adicionar Banca</Button></li>
+              </ButtonList>
               <DataTable 
                 columns={[
                   "Data", 
@@ -110,8 +129,10 @@ const ProjetoDescricao = () => {
               ]}
                 isFullWidth={true}
                 isScrolled={true}
+                hasBorder={false}
+                hasHover={true}
               >
-                <DataRow>
+                <DataRow onClick={handleDescricaoBanca}>
                   <DataItem>12/01/2021</DataItem>
                   <DataItem>12:45</DataItem>
                   <DataItem>Auditório Principal</DataItem>
@@ -124,7 +145,7 @@ const ProjetoDescricao = () => {
                       <li>Jurema Dos Santos Lima</li>
                     </ul>
                   </DataItem>
-                  <DataItem><FiTrash2 /></DataItem>
+                  <DataItem><FiChevronRight size={20}/></DataItem>
                 </DataRow>
               </DataTable>
             </TableContent>
@@ -140,6 +161,7 @@ const ProjetoDescricao = () => {
               ]}
                 isFullWidth={true}
                 isScrolled={true}
+                hasBorder={false}
               >
                 <DataRow>
                   <DataItem>Gabriel Dos Santos Lima</DataItem>

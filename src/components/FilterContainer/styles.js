@@ -27,6 +27,7 @@ export const ContainerContent = styled.div`
     min-height: 70%;
     padding: 8px;
     display: flex;
+    border-radius: 4px;
     flex-direction: column;
     background-color: var(--color-container);
     animation: ${init};

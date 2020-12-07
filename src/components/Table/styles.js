@@ -25,6 +25,7 @@ export const Container = styled.div`
         padding: 10px;
         max-width: 300px;
         height: 100%;
+        font-weight: bold;
         user-select: none;
         cursor: pointer;
         background-color: var(--color-nav-estagio);

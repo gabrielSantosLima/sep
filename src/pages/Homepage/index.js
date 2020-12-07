@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
+import { FiChevronRight } from 'react-icons/fi'
 
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
@@ -10,9 +11,30 @@ import Table from '../../components/Table';
 import TableContent from '../../components/TableContent';
 import DataTable, { DataItem, DataRow } from '../../components/DataTable';
 
-import { Container, Left, Right, UserIcon } from './styles';
+import { Container, Left, Right, UserIcon, ButtonList, ButtonConfirm } from './styles';
 
 const Homepage = () => {
+  const history = useHistory()
+
+  function handleCadastrarEstagio(){
+    history.push("/cadastro-estagio")
+  }
+  
+  function handleCadastrarProjeto(){
+    history.push("/cadastro-projeto")
+  }
+  
+  function handleDescricaoEstagio(){
+    history.push("/descricao-estagio")
+  }
+  
+  function handleDescricaoProjeto(){
+    history.push("/descricao-projeto")
+  }
+  
+  function handleConfirmarBanca(){
+    history.push("/confirmar-banca")
+  }
 
   return (
     <Container>
@@ -25,53 +47,70 @@ const Homepage = () => {
           <Left>
             <Table>
               <TableContent title="Estágios">
+                <ButtonList>
+                  <li><ButtonConfirm onClick={handleCadastrarEstagio}>Adicionar Novo Estágio</ButtonConfirm></li>
+                </ButtonList>
                 <DataTable 
-                  columns={["Título", "Curso", "Concluído", "Carga Horária"]}
+                  columns={["Título", "Curso", "Concluído", "Carga Horária", "Turno", "Responsável",""]}
                   isFullWidth={true}
                   isScrolled={true}
                   hasBorder={false}
+                  hasHover={true}
                 >
-                  <DataRow>
+                  <DataRow onClick={handleDescricaoEstagio}>
                     <DataItem>Título</DataItem>
                     <DataItem>Curso</DataItem>
                     <DataItem>Não</DataItem>
                     <DataItem>CH</DataItem>
+                    <DataItem>Integrado</DataItem>
+                    <DataItem>Gabriel Dos Santos Lima</DataItem>
+                    <DataItem><FiChevronRight size={20} /></DataItem>
                   </DataRow>
                 </DataTable>
               </TableContent>
               <TableContent title="Projetos">
+                <ButtonList>
+                  <li><ButtonConfirm onClick={handleCadastrarProjeto}>Adicionar Novo Projeto</ButtonConfirm></li>
+                </ButtonList>
                 <DataTable 
-                  columns={["Título", "Curso", "Concluído", "Carga Horária"]}
+                  columns={["Título", "Curso", "Concluído", "Carga Horária", "Turno", "Responsável",""]}
                   isFullWidth={true}
                   isScrolled={true}
                   hasBorder={false}
+                  hasHover={true}
                 >
-                  <DataRow>
+                  <DataRow onClick={handleDescricaoProjeto}>
                     <DataItem>Título</DataItem>
                     <DataItem>Curso</DataItem>
                     <DataItem>Sim</DataItem>
                     <DataItem>CH</DataItem>
+                    <DataItem>Integrado</DataItem>
+                    <DataItem>Gabriel Dos Santos Lima</DataItem>
+                    <DataItem><FiChevronRight size={20}/></DataItem>
                   </DataRow>
                 </DataTable>
               </TableContent>
             </Table>
             <Table>
-              <TableContent title="Bancas Adicionadas">
+              <TableContent title="Bancas Solicitadas">
                 <DataTable 
                   columns={["Data de Notificação", 
                   "Local", 
                   "Data da apresentação", 
-                  "Hora"
+                  "Hora",
+                  ""
                 ]}
                   isFullWidth={true}
                   isScrolled={true}
                   hasBorder={false}
+                  hasHover={true}
                 >
-                  <DataRow>
+                  <DataRow onClick={handleConfirmarBanca}>
                     <DataItem>Título</DataItem>
                     <DataItem>Curso</DataItem>
                     <DataItem>Sim</DataItem>
                     <DataItem>CH</DataItem>
+                    <DataItem><FiChevronRight size={20}/></DataItem>
                   </DataRow>
                 </DataTable>
               </TableContent>
