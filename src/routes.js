@@ -24,17 +24,17 @@ const Routes = () => {
         <Route component={ Login } path={["/", "/login"]} exact/>
         <Route component={ Homepage } path="/home" exact/>
         <Route component={ CadastroDiscente } path="/cadastro-discente" exact/>
-        <Route component={ EstagioDescricao } path="/descricao-estagio" exact/>
+        <Route component={ EstagioDescricao } path="/descricao-estagio/:id" exact/>
         <Route component={ CadastroEstagio } path="/cadastro-estagio" exact/>
-        <Route component={ ProjetoDescricao } path="/descricao-projeto"/>
+        <Route component={ ProjetoDescricao } path="/descricao-projeto/:id"/>
         <Route component={ CadastroProjeto } path="/cadastro-projeto" exact/>
         <Route component={ Bancas } path="/bancas" exact/>
         <Route component={ CadastroBanca } path="/cadastro-banca" exact/>
-        <Route component={ BancaDescricao } path="/descricao-banca" exact/>
+        <Route component={ BancaDescricao } path="/descricao-banca/:id" exact/>
         <Route component={ Certificados } path="/certificados" exact/>
         <Route component={ Sobre } path="/sobre" exact />
-        <Route component={ ConfirmaBanca } path="/confirmar-banca" exact />
-        <Route component={ PaginaNaoEncontrada }/>
+        <Route component={ ConfirmaBanca } path="/confirmar-banca/:id" exact />
+        <Route component={ PaginaNaoEncontrada } path="*"/>
       </Switch>
     </BrowserRouter>
   );

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom'
+import { useFetch } from './../../services/useFetch'
+import { Link, useHistory, useParams } from 'react-router-dom'
 import { FiPaperclip, FiBold, FiMapPin, FiDownload, FiTrash2, FiUsers, FiChevronRight} from 'react-icons/fi'
 import { MdAccessTime } from 'react-icons/md'
 
@@ -14,18 +15,25 @@ import TableContent from '../../components/TableContent'
 import Form, { FormGroup } from '../../components/Form'
 import DownloadTable, { DownloadItem } from '../../components/DownloadTable';
 import Title from '../../components/Title';
+import Loading from '../../components/Loading';
 
 import { Container, ButtonConfirm, ButtonDelete, Button, ButtonList } from './styles';
 
 const EstagioDescricao = () => {
   const history = useHistory()
+  const { id } = useParams()
+  const { data:estagio } = useFetch(`/estagios-pcct/${id}`)
+  const { data:bancas } = useFetch(`/bancas/estagio-pcct/${id}`)
+  const { data:alunos } = useFetch(`/alunos/estagio-pcct/${id}`)
+
+  if(!estagio || !bancas || !alunos) return <Loading />
 
   function handleCadastrarBanca(){
     history.push("/cadastro-banca")
   }
   
-  function handleDescricaoBanca(){
-    history.push("/descricao-banca")
+  function handleDescricaoBanca(id){
+    history.push(`/descricao-banca/${id}`)
   }
 
   return (
@@ -50,7 +58,8 @@ const EstagioDescricao = () => {
                     <FiBold />
                     Título
                   </label>
-                  <input 
+                  <input
+                    defaultValue={estagio.titulo}
                     name="titulo" 
                     placeholder="Digite o título do estágio..." 
                     type="text"
@@ -61,24 +70,12 @@ const EstagioDescricao = () => {
                     <FiMapPin />
                     Local
                   </label>
-                  <input 
+                  <input
+                    defaultValue={estagio.local}
                     name="local" 
                     placeholder="Digite o local do estágio..." 
                     type="text"
                   />
-                </FormGroup>
-                <FormGroup>
-                  <label htmlFor="curso">
-                    <FiUsers />
-                    Curso
-                  </label>
-                  <select name="curso">
-                    <option value="INF" selected >INF</option> 
-                    <option value="IQUI" >IQUI</option>
-                    <option value="IQUI">IMEC</option>
-                    <option value="IEDF">IEDF</option>
-                    <option value="IELT">IELT</option>
-                  </select>
                 </FormGroup>
                 <FormGroup>
                   <label htmlFor="ch">
@@ -86,6 +83,7 @@ const EstagioDescricao = () => {
                     Carga horária
                   </label>
                   <input 
+                    defaultValue={estagio.cargaHoraria}
                     name="ch" 
                     placeholder="Digite a carga horária..." 
                     type="text"
@@ -97,6 +95,7 @@ const EstagioDescricao = () => {
                     Anexo
                   </label>
                   <input 
+                    defaultValue={estagio.anexo}
                     name="anexo" 
                     type="file"
                   />
@@ -111,10 +110,9 @@ const EstagioDescricao = () => {
             </ButtonList>
               <DataTable 
                 columns={[
-                  "Data", 
-                  "Horário", 
+                  "Data",
                   "Local", 
-                  "Data de Finalização", 
+                  "Hora de Início", 
                   "Horário de Finalização", 
                   "Participantes", 
                   ""
@@ -124,21 +122,22 @@ const EstagioDescricao = () => {
                 hasBorder={false}
                 hasHover={true}
               >
-                <DataRow onClick={handleDescricaoBanca}>
-                  <DataItem>12/01/2021</DataItem>
-                  <DataItem>12:45</DataItem>
-                  <DataItem>Auditório Principal</DataItem>
-                  <DataItem>12/01/2021</DataItem>
-                  <DataItem>15:00</DataItem>
-                  <DataItem>
-                    <ul>
-                      <li>Gabriel Dos Santos Lima</li>
-                      <li>Minnie Dos Santos Lima</li>
-                      <li>Jurema Dos Santos Lima</li>
-                    </ul>
-                  </DataItem>
-                  <DataItem><FiChevronRight size={20}/></DataItem>
-                </DataRow>
+                {bancas.map(banca => (
+                  <DataRow key={banca.id} onClick={() => handleDescricaoBanca(banca.id)}>
+                    <DataItem>{new Date(banca.data).toLocaleDateString()}</DataItem>
+                    <DataItem>{banca.local}</DataItem>
+                    <DataItem>{new Date(banca.horaInicio).toLocaleTimeString()}</DataItem>
+                    <DataItem>{new Date(banca.horaFinalizado).toLocaleTimeString()}</DataItem>
+                    <DataItem>
+                      <ul>
+                        <li>{banca.coordenadora.nome}</li>
+                        {banca.avaliadores.map(avaliador => <li key={avaliador.id}>{avaliador.nome}</li>)}
+                        {alunos.map(aluno => <li key={aluno.id}>{aluno.nome}</li>)}
+                      </ul>
+                    </DataItem>
+                    <DataItem><FiChevronRight size={20}/></DataItem>
+                  </DataRow>
+                ))}
               </DataTable>
             </TableContent>
             <TableContent title="Participantes">
@@ -155,12 +154,22 @@ const EstagioDescricao = () => {
                 isScrolled={true}
                 hasBorder={false}
               >
+                {alunos.map(aluno => (
+                  <DataRow>
+                    <DataItem>{aluno.nome}</DataItem>
+                    <DataItem>{aluno.matricula}</DataItem>
+                    <DataItem>{aluno.cpf}</DataItem>
+                    <DataItem>{aluno.grau}</DataItem>
+                    <DataItem>DISCENTE</DataItem>
+                    <DataItem><FiTrash2 /></DataItem>
+                  </DataRow>
+                ))}
                 <DataRow>
-                  <DataItem>Gabriel Dos Santos Lima</DataItem>
-                  <DataItem>2018324100</DataItem>
-                  <DataItem>XXX.XXX.XXX-XX</DataItem>
-                  <DataItem>Mestre</DataItem>
-                  <DataItem>Coordenador</DataItem>
+                  <DataItem>{estagio.responsavel.nome}</DataItem>
+                  <DataItem>{estagio.responsavel.matricula}</DataItem>
+                  <DataItem>{estagio.responsavel.cpf}</DataItem>
+                  <DataItem>{estagio.responsavel.grau}</DataItem>
+                  <DataItem>ORIENTADOR</DataItem>
                   <DataItem><FiTrash2 /></DataItem>
                 </DataRow>
               </DataTable>

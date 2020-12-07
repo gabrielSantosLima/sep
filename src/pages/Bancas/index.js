@@ -37,7 +37,7 @@ const Bancas = ()=> {
               <ButtonConfirm 
                 onClick={handleClickConfirButton}
               >
-                Cadastrar Nova Banca
+                Solicitar Nova Banca
               </ButtonConfirm>
               </li>
             </ButtonList>

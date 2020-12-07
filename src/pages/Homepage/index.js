@@ -1,4 +1,5 @@
 import React from 'react';
+import { useEffect, useFetch } from './../../services/useFetch'
 import { Link, useHistory } from 'react-router-dom'
 import { FiChevronRight } from 'react-icons/fi'
 
@@ -10,11 +11,21 @@ import TreeBar from '../../components/TreeBar';
 import Table from '../../components/Table';
 import TableContent from '../../components/TableContent';
 import DataTable, { DataItem, DataRow } from '../../components/DataTable';
+import Loading from '../../components/Loading';
 
 import { Container, Left, Right, UserIcon, ButtonList, ButtonConfirm } from './styles';
 
+const cursos = ["INF", "IQUI", "IELT", "IMEC", "IEDF"]
+
 const Homepage = () => {
   const history = useHistory()
+  const { data : estagiosPcct } = useFetch(`/estagios-pcct?curso=${cursos[0]}`)
+  const { data : notificacoes } = useFetch('/notificacao-banca')
+
+  if(!estagiosPcct || !notificacoes) return <Loading />
+
+  console.log(estagiosPcct)
+  console.log(notificacoes)
 
   function handleCadastrarEstagio(){
     history.push("/cadastro-estagio")
@@ -24,16 +35,20 @@ const Homepage = () => {
     history.push("/cadastro-projeto")
   }
   
-  function handleDescricaoEstagio(){
-    history.push("/descricao-estagio")
+  function handleDescricaoEstagio(id){
+    history.push(`/descricao-estagio/${id}`)
   }
   
-  function handleDescricaoProjeto(){
-    history.push("/descricao-projeto")
+  function handleDescricaoProjeto(id){
+    history.push(`/descricao-projeto/${id}`)
   }
   
-  function handleConfirmarBanca(){
-    history.push("/confirmar-banca")
+  function handleConfirmarBanca(id){
+    history.push(`/confirmar-banca/${id}`)
+  }
+  
+  function handleClickSolicitarBanca(){
+    history.push("/cadastro-banca")
   }
 
   return (
@@ -57,15 +72,21 @@ const Homepage = () => {
                   hasBorder={false}
                   hasHover={true}
                 >
-                  <DataRow onClick={handleDescricaoEstagio}>
-                    <DataItem>Título</DataItem>
-                    <DataItem>Curso</DataItem>
-                    <DataItem>Não</DataItem>
-                    <DataItem>CH</DataItem>
-                    <DataItem>Integrado</DataItem>
-                    <DataItem>Gabriel Dos Santos Lima</DataItem>
-                    <DataItem><FiChevronRight size={20} /></DataItem>
-                  </DataRow>
+                  {estagiosPcct.map(estagioPcct => {
+                    if(estagioPcct.tipo === 'ESTAGIO'){
+                      return (
+                      <DataRow key={estagioPcct.id} onClick={() => handleDescricaoEstagio(estagioPcct.id)}>
+                        <DataItem>{estagioPcct.titulo}</DataItem>
+                        <DataItem>{estagioPcct.curso}</DataItem>
+                        <DataItem>{estagioPcct.concluido ? "Sim" : "Não"}</DataItem>
+                        <DataItem>{estagioPcct.caraHoraria}</DataItem>
+                        <DataItem>{estagioPcct.modalidadeCurso}</DataItem>
+                        <DataItem>{estagioPcct.responsavel.nome}</DataItem>
+                        <DataItem><FiChevronRight size={20} /></DataItem>
+                      </DataRow>
+                      );
+                    }
+                  })}
                 </DataTable>
               </TableContent>
               <TableContent title="Projetos">
@@ -79,39 +100,51 @@ const Homepage = () => {
                   hasBorder={false}
                   hasHover={true}
                 >
-                  <DataRow onClick={handleDescricaoProjeto}>
-                    <DataItem>Título</DataItem>
-                    <DataItem>Curso</DataItem>
-                    <DataItem>Sim</DataItem>
-                    <DataItem>CH</DataItem>
-                    <DataItem>Integrado</DataItem>
-                    <DataItem>Gabriel Dos Santos Lima</DataItem>
-                    <DataItem><FiChevronRight size={20}/></DataItem>
-                  </DataRow>
+                  {estagiosPcct.map(estagioPcct => {
+                    if(estagioPcct.tipo === 'PROJETO'){
+                      return (
+                      <DataRow key={estagioPcct.id} onClick={() => handleDescricaoProjeto(estagioPcct.id)}>
+                        <DataItem>{estagioPcct.titulo}</DataItem>
+                        <DataItem>{estagioPcct.curso}</DataItem>
+                        <DataItem>{estagioPcct.concluido ? "Sim" : "Não"}</DataItem>
+                        <DataItem>{estagioPcct.caraHoraria}</DataItem>
+                        <DataItem>{estagioPcct.modalidadeCurso}</DataItem>
+                        <DataItem>{estagioPcct.responsavel}</DataItem>
+                        <DataItem><FiChevronRight size={20} /></DataItem>
+                      </DataRow>
+                      );
+                    }
+                  })
+                  }
                 </DataTable>
               </TableContent>
             </Table>
             <Table>
               <TableContent title="Bancas Solicitadas">
+                <ButtonList>
+                  <li>
+                    <ButtonConfirm 
+                      onClick={handleClickSolicitarBanca}
+                    >
+                      Solicitar Nova Banca
+                    </ButtonConfirm>
+                  </li>
+                </ButtonList>
                 <DataTable 
-                  columns={["Data de Notificação", 
-                  "Local", 
-                  "Data da apresentação", 
-                  "Hora",
-                  ""
-                ]}
+                  columns={["Data de Notificação","Visualizado", ""]}
                   isFullWidth={true}
                   isScrolled={true}
                   hasBorder={false}
                   hasHover={true}
                 >
-                  <DataRow onClick={handleConfirmarBanca}>
-                    <DataItem>Título</DataItem>
-                    <DataItem>Curso</DataItem>
-                    <DataItem>Sim</DataItem>
-                    <DataItem>CH</DataItem>
-                    <DataItem><FiChevronRight size={20}/></DataItem>
-                  </DataRow>
+                  {notificacoes.map(notificacao => (
+                      <DataRow key={notificacao.id} onClick={() => handleConfirmarBanca(notificacao.id)}>
+                        <DataItem>{notificacao.dataNotificacao}</DataItem>
+                        <DataItem>{notificacao.jaVisualizado}</DataItem>
+                        <DataItem><FiChevronRight size={20}/></DataItem>
+                      </DataRow>
+                  ))
+                  }
                 </DataTable>
               </TableContent>
             </Table>
