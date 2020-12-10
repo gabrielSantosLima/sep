@@ -2,19 +2,18 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Login from './pages/Login';
-import CadastroDiscente from './pages/CadastroDiscente';
 import Homepage from './pages/Homepage';
+import Bancas from './pages/Bancas'
+import Certificados from './pages/Certificados'
+import Sobre from './pages/Sobre';
 import EstagioDescricao from './pages/EstagioDescricao';
 import ProjetoDescricao from './pages/ProjetoDescricao';
-import Bancas from './pages/Bancas'
-import ConfirmaBanca from './pages/ConfirmaBanca';
 import BancaDescricao from './pages/BancaDescricao';
-import Certificados from './pages/Certificados'
+import ConfirmaBanca from './pages/ConfirmaBanca';
 import CadastroProjeto from './pages/CadastroProjeto';
 import CadastroEstagio from './pages/CadastroEstagio';
 import CadastroBanca from './pages/CadastroBanca';
 import PaginaNaoEncontrada from './pages/PaginaNaoEncontrada';
-import Sobre from './pages/Sobre';
 
 
 const Routes = () => {
@@ -23,7 +22,6 @@ const Routes = () => {
       <Switch>
         <Route component={ Login } path={["/", "/login"]} exact/>
         <Route component={ Homepage } path="/home" exact/>
-        <Route component={ CadastroDiscente } path="/cadastro-discente" exact/>
         <Route component={ EstagioDescricao } path="/descricao-estagio/:id" exact/>
         <Route component={ CadastroEstagio } path="/cadastro-estagio" exact/>
         <Route component={ ProjetoDescricao } path="/descricao-projeto/:id"/>

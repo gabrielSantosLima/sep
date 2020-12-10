@@ -38,6 +38,9 @@ export const Container = styled.table`
     tr{
         transition: .4s;
     }
+    tbody{
+        background: var(--color-body-datatable);
+    }
 
     ${props => props.hasHover ? hover : ""}
 

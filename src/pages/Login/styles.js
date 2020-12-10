@@ -71,7 +71,7 @@ export const Main = styled.main`
 
 `;
 
-export const Form = styled.form`
+export const FormLogin = styled.form`
   
   margin: 30px;
 

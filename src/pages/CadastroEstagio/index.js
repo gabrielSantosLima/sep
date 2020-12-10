@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { FiPaperclip ,FiBold, FiMapPin, FiTrash2, FiAtSign, FiUsers, FiUser, FiBookmark  } from 'react-icons/fi'
 import { MdAccessTime, MdAssignmentInd, MdSchool } from 'react-icons/md'
@@ -20,7 +20,6 @@ import SucessPopup from '../../components/SucessPopup'
 import FailPopup from '../../components/FailPopup'
 
 import { Container } from './styles';
-import { useRef } from 'react';
 
 const CadastroEstagio = () => {
   const [users, setUsers] = useState([])

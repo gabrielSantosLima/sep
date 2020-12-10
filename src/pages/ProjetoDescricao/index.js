@@ -1,9 +1,11 @@
-import React from 'react';
+import React , { useState }from 'react';
 import { Link, useHistory, useParams } from 'react-router-dom'
 import { FiPaperclip, FiBold, FiMapPin, FiTrash2, FiChevronRight} from 'react-icons/fi'
 import { MdAccessTime } from 'react-icons/md'
 import { BsNewspaper } from 'react-icons/bs'
+
 import { useFetch } from './../../services/useFetch'
+import api from './../../services/api'
 
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
@@ -17,6 +19,8 @@ import Form, { FormGroup } from '../../components/Form';
 import Title from '../../components/Title';
 import Loading from '../../components/Loading';
 import ErrorButton from '../../components/ErrorButton';
+import SucessPopup from '../../components/SucessPopup'
+import FailPopup from '../../components/FailPopup'
 
 import { Button, ButtonList, ButtonConfirm, Container } from './styles';
 
@@ -26,6 +30,8 @@ const ProjetoDescricao = () => {
   const { data:projeto } = useFetch(`/estagios-pcct/${id}`)
   const { data:bancas } = useFetch(`/bancas/estagio-pcct/${id}`)
   const { data:alunos } = useFetch(`/alunos/estagio-pcct/${id}`)
+  const [isSucess, setIsSucess] = useState(false)
+  const [isFail, setIsFail] = useState(false)
 
   if(!projeto || !bancas || !alunos || projeto.tipo !== 'PROJETO') return <Loading />
 
@@ -37,12 +43,24 @@ const ProjetoDescricao = () => {
     history.push(`/descricao-banca/${id}`)
   }
 
-  function handleDelete(id) { 
-    alert(`Deletado: ${id}`)
+  async function handleDelete(id) { 
+    const { status } = await api.delete(`/estagios-pcct/${id}`)
+    if(status === 400) return 
+    setIsSucess(true)
+    setTimeout(() => history.push('/home'), 4000)
+  }
+  
+  async function handleComplete(id) { 
+    const { status } = await api.post(`/estagios-pcct/concluir/${id}`)
+    if(status === 400) return 
+    setIsSucess(true)
+    setTimeout(() => history.push('/home'), 4000)
   }
 
   return (
     <Container>
+      {isFail && <FailPopup />}
+      {isSucess && <SucessPopup />}
       <ContainerMain>
         <Header isLogin={true}/>
         <TreeBar>
@@ -52,7 +70,7 @@ const ProjetoDescricao = () => {
         <Main>
           <Title>Descrição de Projeto</Title>
           <ButtonList>
-            {!projeto.concluido && <li><ButtonConfirm>Concluir Projeto</ButtonConfirm></li>}
+            {!projeto.concluido && <li><ButtonConfirm onClick={()=> handleComplete(id)}> Concluir Projeto</ButtonConfirm></li>}
             <li><ErrorButton onClick={() => handleDelete(id)}>Deletar Projeto</ErrorButton></li>
           </ButtonList>
           <Table>

@@ -1,8 +1,10 @@
-import React from 'react';
-import { Link, useParams } from 'react-router-dom'
+import React, { useState } from 'react';
+import { Link, useHistory, useParams } from 'react-router-dom'
 import { FiMapPin, FiClock, FiTrash2, FiCalendar, FiBookmark, FiUsers, FiDownload, FiPaperclip } from 'react-icons/fi'
 import { useFetch } from './../../services/useFetch'
 import { formatDate, formatTime } from './../../utils/formatDate'
+
+import api from './../../services/api'
 
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
@@ -17,24 +19,41 @@ import Title from '../../components/Title'
 import DownloadTable, { DownloadItem } from '../../components/DownloadTable';
 import Loading from '../../components/Loading'
 import ErrorButton from '../../components/ErrorButton'
+import SucessPopup from '../../components/SucessPopup'
+import FailPopup from '../../components/FailPopup'
 
 import { Container, ButtonList, Button } from './styles.js';
 
 const BancaDescricao = () => {
+  const history = useHistory()
   const { id } = useParams()
   const { data:banca } = useFetch(`/bancas/${id}`)
   const { data:alunos } = useFetch(`/alunos/estagio-pcct/${banca?.estagioPcct?.id}`)
+  const [isSucess, setIsSucess] = useState(false)
+  const [isFail, setIsFail] = useState(false)
 
   console.log(banca)
 
   if(!banca || !alunos) return <Loading />
 
-  function handleDelete(id) { 
-    alert(`Deletado: ${id}`)
+  async function handleDelete(id) {
+    const { status } = await api.delete(`/bancas/${id}`)
+    if(status === 400) return setIsFail(true)
+    setIsSucess(true)
+    setTimeout(() => history.push('/home'), 4000)
+  }
+  
+  async function handleComplete(id) {
+    const { status } = await api.post(`/bancas/finalizar/${id}`)
+    if(status === 400) return setIsFail(true)
+    setIsSucess(true)
+    setTimeout(() => history.push('/home'), 4000)
   }
 
   return (
     <Container>
+      {isFail && <FailPopup />}
+      {isSucess && <SucessPopup />}
       <ContainerMain>
         <Header isLogin={true} />
         <TreeBar>
@@ -44,7 +63,7 @@ const BancaDescricao = () => {
         <Main>
           <Title>Descrição de Banca</Title>
           <ButtonList>
-            {!banca.horaFinalizado !== null && <li><Button>Cadastrar Ficha de Avaliação</Button></li>}
+            {!banca.horaFinalizado !== null && <li><Button onClick={() => handleComplete(id)}>Cadastrar Ficha de Avaliação</Button></li>}
             <li><ErrorButton onClick={()=> handleDelete(id)}>Deletar Banca</ErrorButton></li>
           </ButtonList>
           <Table>

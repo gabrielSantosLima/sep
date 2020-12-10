@@ -5,13 +5,12 @@ import Footer from './../../components/Footer'
 import Header from './../../components/Header'
 import ContainerMain from '../../components/ContainerMain'
 
-import { Container, Main, Form } from './styles';
+import { Container, Main, FormLogin } from './styles';
 
 const Login = () => {
   
   function handleLogin(event){
     event.preventDefault();
-
     console.log("Logado")
   }
     return (
@@ -61,7 +60,7 @@ const Login = () => {
             </Link>
         </h5>
         
-        <Form onSubmit={handleLogin}>
+        <FormLogin onSubmit={handleLogin}>
           <div className="form-group">
               <label>Entrar no Sistema</label>
               
@@ -80,7 +79,7 @@ const Login = () => {
               />
               <button type="submit" className="btn">Entrar</button>
           </div> 
-        </Form>
+        </FormLogin>
 
         <Footer />
       </ContainerMain>

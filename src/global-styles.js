@@ -33,6 +33,7 @@ const GlobalStyle = createGlobalStyle`
    --color-hover: #d9d8d7;
    --color-sucess: green;
    --color-fail: red;
+   --color-body-datatable: #EBEBEB;
   }
 
   html,body, #root{
