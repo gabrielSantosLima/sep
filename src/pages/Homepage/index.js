@@ -1,5 +1,5 @@
 import React from 'react';
-import { useEffect, useFetch } from './../../services/useFetch'
+import { useFetch } from './../../services/useFetch'
 import { Link, useHistory } from 'react-router-dom'
 import { FiChevronRight } from 'react-icons/fi'
 
@@ -66,7 +66,7 @@ const Homepage = () => {
                   <li><ButtonConfirm onClick={handleCadastrarEstagio}>Adicionar Novo Estágio</ButtonConfirm></li>
                 </ButtonList>
                 <DataTable 
-                  columns={["Título", "Curso", "Concluído", "Carga Horária", "Turno", "Responsável",""]}
+                  columns={["Título", "Concluído", "Carga Horária", "Turno", "Responsável",""]}
                   isFullWidth={true}
                   isScrolled={true}
                   hasBorder={false}
@@ -77,11 +77,10 @@ const Homepage = () => {
                       return (
                       <DataRow key={estagioPcct.id} onClick={() => handleDescricaoEstagio(estagioPcct.id)}>
                         <DataItem>{estagioPcct.titulo}</DataItem>
-                        <DataItem>{estagioPcct.curso}</DataItem>
                         <DataItem>{estagioPcct.concluido ? "Sim" : "Não"}</DataItem>
-                        <DataItem>{estagioPcct.caraHoraria}</DataItem>
+                        <DataItem>{estagioPcct.cargaHoraria}</DataItem>
                         <DataItem>{estagioPcct.modalidadeCurso}</DataItem>
-                        <DataItem>{estagioPcct.responsavel.nome}</DataItem>
+                        <DataItem>{estagioPcct.responsavel?.nome}</DataItem>
                         <DataItem><FiChevronRight size={20} /></DataItem>
                       </DataRow>
                       );
@@ -94,7 +93,7 @@ const Homepage = () => {
                   <li><ButtonConfirm onClick={handleCadastrarProjeto}>Adicionar Novo Projeto</ButtonConfirm></li>
                 </ButtonList>
                 <DataTable 
-                  columns={["Título", "Curso", "Concluído", "Carga Horária", "Turno", "Responsável",""]}
+                  columns={["Título", "Concluído", "Carga Horária", "Turno", "Responsável",""]}
                   isFullWidth={true}
                   isScrolled={true}
                   hasBorder={false}
@@ -105,11 +104,10 @@ const Homepage = () => {
                       return (
                       <DataRow key={estagioPcct.id} onClick={() => handleDescricaoProjeto(estagioPcct.id)}>
                         <DataItem>{estagioPcct.titulo}</DataItem>
-                        <DataItem>{estagioPcct.curso}</DataItem>
                         <DataItem>{estagioPcct.concluido ? "Sim" : "Não"}</DataItem>
-                        <DataItem>{estagioPcct.caraHoraria}</DataItem>
+                        <DataItem>{estagioPcct.cargaHoraria}</DataItem>
                         <DataItem>{estagioPcct.modalidadeCurso}</DataItem>
-                        <DataItem>{estagioPcct.responsavel}</DataItem>
+                        <DataItem>{estagioPcct.responsavel?.nome}</DataItem>
                         <DataItem><FiChevronRight size={20} /></DataItem>
                       </DataRow>
                       );
