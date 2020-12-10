@@ -10,6 +10,7 @@ const Table = ({ children, startIndex = 0 }) => {
     function handleFrame(index){
         setIndexFrame(index)
     }
+    
     function renderNavItems(child){
         const indexOf = children?.indexOf(child)
         const { title } = child.props

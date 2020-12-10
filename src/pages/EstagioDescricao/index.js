@@ -1,7 +1,7 @@
 import React from 'react';
 import { useFetch } from './../../services/useFetch'
 import { Link, useHistory, useParams } from 'react-router-dom'
-import { FiPaperclip, FiBold, FiMapPin, FiDownload, FiTrash2, FiUsers, FiChevronRight} from 'react-icons/fi'
+import { FiPaperclip, FiBold, FiMapPin, FiTrash2, FiChevronRight} from 'react-icons/fi'
 import { MdAccessTime } from 'react-icons/md'
 
 import Header from '../../components/Header'
@@ -13,11 +13,11 @@ import TreeBar from '../../components/TreeBar'
 import Table from '../../components/Table'
 import TableContent from '../../components/TableContent'
 import Form, { FormGroup } from '../../components/Form'
-import DownloadTable, { DownloadItem } from '../../components/DownloadTable';
 import Title from '../../components/Title';
 import Loading from '../../components/Loading';
+import ErrorButton from '../../components/ErrorButton';
 
-import { Container, ButtonConfirm, ButtonDelete, Button, ButtonList } from './styles';
+import { Container, ButtonConfirm, Button, ButtonList } from './styles';
 
 const EstagioDescricao = () => {
   const history = useHistory()
@@ -26,7 +26,7 @@ const EstagioDescricao = () => {
   const { data:bancas } = useFetch(`/bancas/estagio-pcct/${id}`)
   const { data:alunos } = useFetch(`/alunos/estagio-pcct/${id}`)
 
-  if(!estagio || !bancas || !alunos) return <Loading />
+  if(!estagio || !bancas || !alunos || estagio.tipo !== 'ESTAGIO') return <Loading />
 
   function handleCadastrarBanca(){
     history.push("/cadastro-banca")
@@ -36,19 +36,23 @@ const EstagioDescricao = () => {
     history.push(`/descricao-banca/${id}`)
   }
 
+  function handleDelete(id) { 
+    alert(`Deletado: ${id}`)
+  }
+
   return (
     <Container>
       <ContainerMain>
         <Header isLogin={true}/>
         <TreeBar>
           <li><Link to="/home">Tela Inicial</Link></li>
-          <li><Link to="/descricao-estagio">Descrição de Estágio</Link></li>
+          <li><Link to={`/descricao-estagio/${id}`}>Descrição de Estágio</Link></li>
         </TreeBar>
         <Title>Descrição de Estágio</Title>
         <Main>
           <ButtonList>
-            <li><ButtonConfirm>Concluir Estágio</ButtonConfirm></li>
-            <li><ButtonDelete>Deletar Estágio</ButtonDelete></li>
+            {!estagio.concluido && <li><ButtonConfirm>Concluir Estágio</ButtonConfirm></li> }
+            <li><ErrorButton onClick={() => handleDelete(id)}>Deletar Estágio</ErrorButton></li>
           </ButtonList>
           <Table>
             <TableContent title="Descrição">
@@ -105,7 +109,7 @@ const EstagioDescricao = () => {
             <TableContent title="Bancas">
             <ButtonList>
               <li>
-                <Button onClick={handleCadastrarBanca}>Adicionar Banca</Button>
+                <ButtonConfirm onClick={handleCadastrarBanca}>Adicionar Banca</ButtonConfirm>
               </li>
             </ButtonList>
               <DataTable 
@@ -131,8 +135,8 @@ const EstagioDescricao = () => {
                     <DataItem>
                       <ul>
                         <li>{banca.coordenadora.nome}</li>
-                        {banca.avaliadores.map(avaliador => <li key={avaliador.id}>{avaliador.nome}</li>)}
-                        {alunos.map(aluno => <li key={aluno.id}>{aluno.nome}</li>)}
+                        {banca.avaliadores.map(avaliador => (<li key={avaliador.id}>{avaliador.nome}</li>))}
+                        {alunos.map(aluno => (<li key={aluno.id}>{aluno.nome}</li>))}
                       </ul>
                     </DataItem>
                     <DataItem><FiChevronRight size={20}/></DataItem>
@@ -159,7 +163,7 @@ const EstagioDescricao = () => {
                     <DataItem>{aluno.nome}</DataItem>
                     <DataItem>{aluno.matricula}</DataItem>
                     <DataItem>{aluno.cpf}</DataItem>
-                    <DataItem>{aluno.grau}</DataItem>
+                    <DataItem>{aluno.grau.replace("_", " ")}</DataItem>
                     <DataItem>DISCENTE</DataItem>
                     <DataItem><FiTrash2 /></DataItem>
                   </DataRow>
@@ -168,20 +172,11 @@ const EstagioDescricao = () => {
                   <DataItem>{estagio.responsavel.nome}</DataItem>
                   <DataItem>{estagio.responsavel.matricula}</DataItem>
                   <DataItem>{estagio.responsavel.cpf}</DataItem>
-                  <DataItem>{estagio.responsavel.grau}</DataItem>
+                  <DataItem>{estagio.responsavel.grau.replace("_", " ")}</DataItem>
                   <DataItem>ORIENTADOR</DataItem>
                   <DataItem><FiTrash2 /></DataItem>
                 </DataRow>
               </DataTable>
-            </TableContent>
-            <TableContent title="Documentos">
-              <DownloadTable>
-                <DownloadItem>
-                  <FiPaperclip size={20}/>
-                  <span>Ata de relatório</span>
-                  <FiDownload className="download" size={20}/>
-                </DownloadItem>
-              </DownloadTable> 
             </TableContent>
           </Table>
         </Main>  

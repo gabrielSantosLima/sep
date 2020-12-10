@@ -25,7 +25,6 @@ const Form = ({
     }
 
     function handleConfirm(resp){
-        alert(resp)
         if(!resp) return
         callback()
     }

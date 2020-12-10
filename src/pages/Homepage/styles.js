@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
     main{
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         justify-content: center;
         flex-direction: row;
     }
@@ -21,8 +21,7 @@ export const Left = styled.div`
 export const Right = styled.div`
     background: var(--color-profile-container);
     flex: 1;
-    height: 80vh;
-    max-height: 200vh;
+    height: 100vh;
 
     ul{
         display: flex;
